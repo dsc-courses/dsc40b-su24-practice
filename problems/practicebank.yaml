@@ -9,8 +9,6 @@ tagsets:
     title: "Midterm 01"
     description: |
       Practice problems for topics on Midterm 01.
-      See also the <a href="http://dsc40b.com/materials/default/supplementary/sample_midterm_01/sample_midterm_01.pdf">Sample Midterm 01</a>
-      and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midterm_01/sample_midterm_01-solution.pdf">solutions</a>.
     tags:
       - asymptotic notation
       - best and worst case
@@ -31,8 +29,6 @@ tagsets:
     title: "Midterm 02"
     description: |
       Practice problems for topics on Midterm 02.
-      See also the <a href="http://dsc40b.com/materials/default/supplementary/sample_midterm_02/sample_midterm_02.pdf">Sample Midterm 02</a>
-      and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midterm_02/sample_midterm_02-solution.pdf">solutions</a>.
     tags:
       - aggregate analysis
       - bellman-ford
