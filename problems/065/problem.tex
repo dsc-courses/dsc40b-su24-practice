@@ -1,0 +1,54 @@
+%% source: 2023-sp-midterm_01
+%% tags: [theoretical lower bounds, sorted structure]
+\begin{prob}
+    Suppose $a$ and $b$ are two numbers, with $a \leq b$.
+    Consider the problem of counting the number of elements in an array which
+    are between $a$ and $b$; that is, the number of elements $x$ such that $a
+    \leq x \leq b$. You may assume for simplicity that both $a$ and $b$ are in the array,
+    and there are no duplicates.
+
+    \begin{subprobset}
+        \begin{subprob}
+            What is a \textbf{tight} theoretical lower bound for this problem, assuming that
+            the array is \textbf{unsorted}? State your answer in asymptotic notation as a function
+            of the number of elements in the array, $n$.
+
+            \begin{soln}
+                $\Theta(n)$.
+
+                Since the array is in arbitrary order, we have to at least read all
+                of the elements, taking $\Omega(n)$ time. This is a tight lower bound,
+                because we can count the number of elements between $a$ and $b$ by
+                looping through and checking whether each element is in $[a, b]$
+                in linear time.
+            \end{soln}
+        \end{subprob}
+
+        \begin{subprob}
+            What is a \textbf{tight} theoretical lower bound for this problem, assuming that
+            the array is \textbf{sorted}? State your answer in asymptotic notation as a function
+            of the number of elements in the array, $n$.
+
+            \begin{soln}
+                $\Theta(\log n)$.
+
+                We can do this in worst-case $\Theta(\log n)$ time with binary search:
+                find the index of $a$ in worst-case $\Theta(\log n)$ time;
+                find the index of $b$ in worst-case $\Theta(\log n)$ time;
+                and subtract the two indices (and add one) to get the total number
+                of elements between $a$ and $b$, inclusive.
+
+                There cannot be an algorithm that is better than $\Theta(\log n)$
+                in the worst case, so this is a tight lower bound. To see why, recognize
+                that we can solve the query problem (determine True/False if a target $t$
+                is in a sorted array) with any algorithm that solves this problem by
+                setting $a = b = t$. If an algorithm solves this problem in faster than
+                $\Theta(\log n)$, it will also solve the query problem in faster than
+                $\Theta(\log n)$, but we saw in class that the query problem has a theoretical
+                lower bound of $\Theta(\log n)$, so such an algorithm cannot exist.
+            \end{soln}
+
+        \end{subprob}
+    \end{subprobset}
+
+\end{prob}

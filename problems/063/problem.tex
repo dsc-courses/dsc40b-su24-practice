@@ -1,0 +1,30 @@
+%% source: 2023-sp-midterm_01
+%% tags: [theoretical lower bounds]
+\begin{prob}
+    Consider again the problem of determining whether there exists a pair of numbers
+    in an array which, when added together, equal the maximum number in the array.
+    Additionally, \textbf{assume that the array is sorted}.
+
+    True or False: $\Theta(n)$ is a \textbf{tight} theoretical lower bound for this
+    problem.
+
+    \Tf{}
+
+    \begin{soln}
+        True.
+
+        Any algorithm must take $\Omega(n)$ time in the worst case, since in the worst
+        case all elements of the array must be read.
+
+        This is tight because there is an algorithm that will compute the answer in
+        worst-case $\Theta(n)$ time. Namely, this is an instance of the ``movie problem''
+        from lecture, where instead of finding two numbers which add to an arbitrary
+        target, we're looking for a specific target: the maximum. We saw an algorithm
+        that solved the movie problem in $\Theta(n)$ time, where $n$ was the number of
+        movies.
+        Since the maximum
+        is computed in $\Theta(1)$ time for a sorted array, we can use the same algorithm
+        to solve this in $\Theta(n)$ time as well.
+    \end{soln}
+
+\end{prob}

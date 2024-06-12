@@ -1,0 +1,19 @@
+%% source: 2021-fa-midterm_01
+%% tags: [time complexity]
+\begin{prob}
+    What is the time complexity of the following function?
+    State your answer using asymptotic notation (e.g., $\Theta(n)$).
+
+    \begin{minted}{python}
+            def foo(n):
+                for i in range(n):
+                    for j in range(n**2):
+                        for k in range(n):
+                            print(i + j + k)
+    \end{minted}
+
+    \begin{soln}
+        $\Theta(n^4)$
+    \end{soln}
+
+\end{prob}

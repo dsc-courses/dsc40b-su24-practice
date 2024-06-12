@@ -1,0 +1,40 @@
+%% source: 2021-fa-midterm_01
+%% tags: [asymptotic notation]
+\begin{prob}
+    Let $f$ be the piecewise function defined as:
+    \[
+        f(n) = \begin{cases}
+            1, & \text{if $n$ is a multiple of 1 million},\\
+            n^2, &\text{otherwise}.
+        \end{cases}
+    \]
+
+    If you were to plot $f$, the function would look like $n^2$, but would have point
+    discontinuities where it ``jumps'' back to 1 whenever $n$ is a multiple of
+    1 million.
+
+    True or False: $f(n) = \Theta(n^2)$.
+
+    \tF{}
+
+    \begin{soln}
+        False.
+
+        $f(n)$ \textit{is} upper bounded by $O(n^2)$, but it doesn't have a
+        lower bound of $\Omega(n^2)$, which is necessary for it to be
+        $\Theta(n^2)$.
+
+        To see why, remember that for $f(n)$ to be $\Omega(n^2)$, there must be
+        a positive constant $c$ so that $f(n)$ stays above $c\cdot n^2$ for all
+        $n$ greater than some $n_0$, meaning that it goes above $c n^2$
+        \textit{and it stays above $c n^2$} forever, after some point.
+
+        Pick whatever positive $c$ you'd like -- the function $c\cdot n^2$
+        grows larger and larger as $n$ increases, and eventually becomes larger
+        than 1. But the function $f(n)$ keeps dipping down to 1, meaning that
+        it doesn't stay above $c\cdot n^2$ for all $n$ when $n$ is large.
+        Therefore, $f(n)$ is not $\Omega(n^2)$, and therefore also not
+        $\Theta(n^2)$.
+    \end{soln}
+
+\end{prob}

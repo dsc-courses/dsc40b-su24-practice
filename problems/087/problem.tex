@@ -1,0 +1,74 @@
+%% source: 2023-sp-redemption_midterm_01
+%% tags: [theoretical lower bounds]
+\begin{prob}
+    Consider the following problem: given a (possibly unsorted) list of size
+    $n$ containing only ones and zeros, determine if the number of ones is
+    equal to the number of zeros.
+
+    \begin{subprobset}
+
+        \begin{subprob}
+            What is a \textbf{tight} theoretical lower bound for this problem?
+            State your answer as a function of $n$ using asymptotic notation.
+
+            \begin{soln}
+                $\Theta(n)$
+            \end{soln}
+        \end{subprob}
+
+        \begin{subprob}
+            Now assume that the input array is guaranteed to have the following structure:
+            there will be $a$ ones, followed by $b$ zeros, followed again by $a$ ones.
+            An example of such an array is:
+                \mintinline{python}{[1, 1, 0, 0, 0, 1, 1]}.
+            In this example, $a = 2$ and $b = 3$.
+
+            Consider the same problem as before: that is, given an array
+            satisfying the above assumption, determine if the number of ones in
+            the array is equal to the number of zeros. Of course, $a$ and $b$
+            are not known ahead of time.
+
+            What is a \textbf{tight} theoretical lower bound for this problem?
+
+            \begin{soln}
+                $\Theta(1)$
+
+                Let $n$ be the length of the array.
+                Assume that $n$ is even (if it is odd, we can immediately say that
+                there are not an equal number of ones and zeros). In fact, we can assume
+                that $n$ is divisible by four, since $n = a + b + a = 2a + b$, which
+                must equal $4a$ if there are an equal number of ones and zeros.
+
+                For there to be an equal number of ones as zeros, the middle
+                $n/2$ elements must be zero, while the first $n/4$ and last
+                $n/4$ must be ones. If that is the case, then the last one in
+                the first group of ones will occur at index $n / 4 - 1$, and
+                the first zero will occur at $n / 4 $
+
+                A constant-time algorithm is to check the element at index $n/4
+                - 1$ and verify that it is a one. Then we check the element at
+                index $n/4 $ and check that it is a zero.
+
+                Consider, for example, this array with $n = 10$:
+                \[
+                    \mintinline{python}{[1, 1, 1, 0, 0, 0, 0, 1, 1, 1]}
+                \]
+                Then $n / 10 = 10 / 4 = 2.5 = 2$. Therefore, we check the
+                elements at index 1 and 2 in constant time and find them to
+                both be one, which tells us that this array does not have an
+                equal number of zeros and ones.
+
+                Now consider the array below:
+                \[
+                    \mintinline{python}{[1, 1, 0, 0, 0, 0, 1, 1]}
+                \]
+                Since $n = 8$, we again check the elements at index 1 and 2. We find 1
+                and 0, which tells us that the array \textit{does} have an equal number
+                of zeros and ones, as expected.
+            \end{soln}
+
+        \end{subprob}
+
+    \end{subprobset}
+
+\end{prob}

@@ -1,0 +1,26 @@
+%% tags: [graph representations, aggregate analysis]
+%% source: 2023-sp-redemption_midterm_02
+\begin{prob}
+    Suppose a graph $G = (V, E)$ is stored using an adjacency list representation in
+    the variable \mintinline{python}{adj_list}.
+    What is the time complexity of the below code?
+
+    \begin{minted}{python}
+        for lst in adj_list:
+            for u in lst:
+                print(u)
+    \end{minted}
+
+    \begin{choices}
+        \choice $\Theta(V)$
+        \correctchoice $\Theta(V + E)$
+        \choice $\Theta(V^2)$
+        \choice $\Theta(E^2)$
+        \choice $\Theta(V^2 + E^2)$
+    \end{choices}
+
+    \begin{soln}
+        $\Theta(V + E)$
+    \end{soln}
+
+\end{prob}

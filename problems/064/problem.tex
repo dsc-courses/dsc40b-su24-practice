@@ -1,0 +1,45 @@
+%% source: 2023-sp-midterm_01
+%% tags: [expected time]
+\begin{prob}
+    What is the \textbf{expected} time complexity of the function below?
+    State your answer using asymptotic notation.
+
+    You may assume that \mintinline{python}{math.sqrt} and \mintinline{python}{math.log} take $\Theta(1)$
+    time. \mintinline{python}{math.log} computes the natural log.
+
+    \inputminted{python}{./code.py}
+
+    \begin{soln}
+        $\Theta(n \log n)$
+
+        There are three cases: Case 1) $x < \log n$; Case 2) $\log n \geq x <
+        \sqrt n$; and Case 3) $x \geq \sqrt{n}$.
+
+        The probability of Case 1 is $\log n / n$. The time taken in case 1 is
+        $\Theta(n^2)$.
+
+        The probability of Case 2 is \[
+            \frac{\sqrt n}{n} - \frac{\log n}{n} = \Theta(\sqrt n / n) = \Theta(1/\sqrt n).
+        \] The time taken in this case is $\Theta(1)$.
+
+        The probability of Case 3 is 1 minus the probability of the sum of the
+        other two cases, which will simply be $\Theta(1)$: \[
+            1 - \Theta((\log n) / n) - \Theta(1 / \sqrt{n}) = \Theta(1)
+        \]
+
+        Therefore, the expected time is:
+        \[
+            \begin{aligned}
+            \frac{\log n}{n} \times \Theta(n^2)
+            + \Theta(1/\sqrt n) \times \Theta(1)
+            + \Theta(1) \times \Theta(n)
+            &=
+            \Theta(n \log n) + \Theta(1 / \sqrt n) + \Theta(n)
+            \\
+            &=
+            \Theta(n \log n)
+            \end{aligned}
+        \]
+    \end{soln}
+
+\end{prob}

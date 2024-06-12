@@ -1,0 +1,95 @@
+{
+  "nodes": {
+    "dictconfig": {
+      "inputs": {
+        "nixpkgs": [
+          "practicebank",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1644187513,
+        "narHash": "sha256-1PrVTiClDV2vohxiAa3DRcmSFw7I9WCQn2ZsDiV5Om8=",
+        "owner": "eldridgejm",
+        "repo": "dictconfig",
+        "rev": "3db0e7edda59a162d64c9a7ac441e1c5bf848eda",
+        "type": "github"
+      },
+      "original": {
+        "owner": "eldridgejm",
+        "ref": "master",
+        "repo": "dictconfig",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1704290814,
+        "narHash": "sha256-LWvKHp7kGxk/GEtlrGYV68qIvPHkU9iToomNFGagixU=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "70bdadeb94ffc8806c0570eb5c2695ad29f0e421",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-23.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "panprob": {
+      "inputs": {
+        "nixpkgs": [
+          "practicebank",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1700548114,
+        "narHash": "sha256-BXC6MXPvSLwAn/cILDgLJ1Y6ROTt7K9ghE/nU+UWI6Y=",
+        "owner": "eldridgejm",
+        "repo": "panprob",
+        "rev": "6fa762146da4cc89b2a227f73ac2987806071183",
+        "type": "github"
+      },
+      "original": {
+        "owner": "eldridgejm",
+        "ref": "0.1.4",
+        "repo": "panprob",
+        "type": "github"
+      }
+    },
+    "practicebank": {
+      "inputs": {
+        "dictconfig": "dictconfig",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "panprob": "panprob"
+      },
+      "locked": {
+        "lastModified": 1700548167,
+        "narHash": "sha256-l2qhTrMhTzgVSAo9PtWVFSYVZ9BmIExoTcqmz/QIRKs=",
+        "owner": "eldridgejm",
+        "repo": "practicebank",
+        "rev": "fd0aeef34aa1ef86c660318943d83b37de216f99",
+        "type": "github"
+      },
+      "original": {
+        "owner": "eldridgejm",
+        "ref": "0.1.5",
+        "repo": "practicebank",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "practicebank": "practicebank"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

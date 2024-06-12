@@ -1,0 +1,19 @@
+%% source: 2023-sp-midterm_01
+%% tags: [loop invariants, binary search]
+\begin{prob}
+    Consider the iterative implementation of binary search shown below:
+    \inputminted{python}{./code.py}
+
+    Which of the following loop invariants is true, assuming that
+    \mintinline{python}{arr} is sorted and non-empty, and \mintinline{python}{target} is \textbf{not} in the array? Select all that apply.
+
+    \begin{choices}[rectangle]
+        \correctchoice  After each iteration, \mintinline{python}{stop - start >= 0}.
+        \choice  After each iteration, \mintinline{python}{stop - start >= 1}.
+        \choice  After each iteration, \mintinline{python}{arr[start] <= target}.
+    \end{choices}
+
+    \begin{soln}
+        The first option is correct.
+    \end{soln}
+\end{prob}

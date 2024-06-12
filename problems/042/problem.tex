@@ -1,0 +1,16 @@
+%% source: 2021-fa-midterm_01
+%% tags: [verifying recursion]
+\begin{prob}
+    Consider the code below which claims to compute the maximum of the input array.
+    Adopt the convention that the maximum of an empty array is $-\infty$.
+
+    \inputminted{python}{./code.py}
+
+    Will this code always return the correct answer (the maximum)? If yes, simply say
+    so. If no, describe what might happen (recurse infinitely, return the wrong answer,
+    raise an index error, etc.).
+
+    \begin{soln}
+        This code will recurse infinitely when called on an array with a single element.
+    \end{soln}
+\end{prob}

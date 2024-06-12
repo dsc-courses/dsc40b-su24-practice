@@ -1,0 +1,18 @@
+%% source: 2022-fa-redemption_midterm_01
+%% tags: [recurrence relations]
+\begin{prob}
+    What is the solution of the below recurrence? State your answer using asymptotic notation as a function of $n$.
+
+    \[
+        T(n) = 
+        \begin{cases}
+            5 T(n/5) + \Theta(n),& n > 1\\
+            1,& n = 1
+        \end{cases}
+    \]
+
+    \begin{soln}
+        $\Theta(n \log n)$
+    \end{soln}
+
+\end{prob}

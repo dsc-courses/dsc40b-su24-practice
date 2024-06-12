@@ -1,0 +1,33 @@
+%% source: 2023-sp-midterm_02
+%% tags: [breadth first search]
+\begin{prob}
+
+    Suppose a breadth-first search (BFS) is performed in order to calculate a
+    dictionary of shortest path distances, \mintinline{python}{dist}, from a source node
+    $s$ to all nodes reachable from $s$ in an undirected graph $G = (V, E)$.
+
+    Suppose node $u$ is a node in $G$, and $v_1$ and $v_2$ are two neighbors of
+    node $u$. Assume that $u$ is reachable from $s$.
+
+    \begin{subprobset}
+
+        \begin{subprob}
+            What is the \textit{largest} that $|$\mintinline{python}{dist[v_2] - dist[v_1]}$|$ can be?
+
+            \begin{soln}
+                2
+            \end{soln}
+
+        \end{subprob}
+
+        \begin{subprob}
+            What is the \textit{smallest} that $|$\mintinline{python}{dist[v_2] - dist[v_1]}$|$ can be?
+
+            \begin{soln}
+                0
+            \end{soln}
+        \end{subprob}
+
+    \end{subprobset}
+
+\end{prob}

@@ -1,0 +1,68 @@
+%% source: 2021-fa-midterm_01
+%% tags: [binary search]
+\begin{prob}
+    Consider the problem of searching for an element \mintinline{python}{t} in a
+    \textit{sorted} array, with the added requirement that if \mintinline{python}{t} is in
+    the array multiple times, we return the index of the \textit{first} occurrence.
+    For example, if \mintinline{python}{arr = [3, 4, 4, 4, 5, 8]}, and \mintinline{python}{t = 4}, the code
+    should return \mintinline{python}{1}, since the first \mintinline{python}{4} is at index one.
+
+    \mintinline{python}{binary_search} as implemented in lecture may not necessarily return
+    the index of the first occurrence of \mintinline{python}{t}, but it can be modified
+    so that it does.
+
+    Fill in the blanks below so that the function returns the index of the
+    first occurence of \mintinline{python}{t}. Hint: \mintinline{python}{last_seen} should keep track of the
+    index of the last known occurrence of \mintinline{python}{t}.
+
+    \begin{minted}{python}
+        import math
+        def mbs(arr, t, start, stop, last_seen=None):
+            if start - stop <= 0:
+                return last_seen
+
+            middle = math.floor((stop - start) / 2)
+
+            if arr[middle] == t:
+                # _________ <-- fill this in
+            elif arr[middle] < t:
+                # _________ <-- fill this in
+            else:
+                # _________ <-- fill this in
+    \end{minted}
+
+    \begin{soln}
+
+        Here is how the blanks should be filled in:
+
+        \begin{minted}[autogobble]{python}
+            if arr[middle] == t:
+                return mbs(arr, t, start, middle, middle)
+            elif arr[middle] < t:
+                return mbs(arr, t, middle + 1, stop, last_seen)
+            else:
+                return mbs(arr, t, start, middle, last_seen)
+        \end{minted}
+
+        If we see \mintinline{python}{arr[middle] == t}, we know that this is either
+        the first occurrence of \mintinline{python}{t} in the array, or the 
+        first occurrence of \mintinline{python}{t} in the left half of the array.
+        Therefore, we make a recursive call to \mintinline{python}{mbs} on the left
+        half of the array, keeping track of \mintinline{python}{middle} as the index
+        of the leftmost occurrence of \mintinline{python}{t} we have seen so far (this is
+        done by passing it as the value to \mintinline{python}{last_seen}).
+
+        The other recursive calls are the same as in the original \mintinline{python}{binary_search}
+        function, except that we pass \mintinline{python}{last_seen} as an argument
+        to the recursive calls. This is because we want to keep track of the leftmost
+        occurrence of \mintinline{python}{t} we have seen so far.
+
+        Eventually, we will reach a point where \mintinline{python}{start - stop <= 0}.
+        At this point, we return \mintinline{python}{last_seen}, which is the index
+        of the leftmost occurrence of \mintinline{python}{t} we have seen so far.
+        This will necessarily be the leftmost occurrence of \mintinline{python}{t}
+        in the array.
+
+    \end{soln}
+
+\end{prob}

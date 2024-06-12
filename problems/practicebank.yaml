@@ -1,0 +1,47 @@
+description: |
+  <div class="alert alert-primary" role="alert">
+      This set of practice problems is new this quarter. <b>Please let us know
+          on Campuswire if you find any errors or have any suggestions</b>.
+  </div>
+
+tagsets:
+  - identifier: midterm-01
+    title: "Midterm 01"
+    description: |
+      Practice problems for topics on Midterm 01.
+      See also the <a href="http://dsc40b.com/materials/default/supplementary/sample_midterm_01/sample_midterm_01.pdf">Sample Midterm 01</a>
+      and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midterm_01/sample_midterm_01-solution.pdf">solutions</a>.
+    tags:
+      - asymptotic notation
+      - best and worst case
+      - binary search
+      - binary search trees
+      - expected time
+      - loop invariants
+      - mergesort
+      - quickselect
+      - recurrence relations
+      - recursion
+      - sorted structure
+      - theoretical lower bounds
+      - time complexity
+      - verifying recursion
+
+  - identifier: midterm-02
+    title: "Midterm 02"
+    description: |
+      Practice problems for topics on Midterm 02.
+      See also the <a href="http://dsc40b.com/materials/default/supplementary/sample_midterm_02/sample_midterm_02.pdf">Sample Midterm 02</a>
+      and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midterm_02/sample_midterm_02-solution.pdf">solutions</a>.
+    tags:
+      - aggregate analysis
+      - bellman-ford
+      - breadth first search
+      - connected components
+      - depth first search
+      - graph representations
+      - graph theory
+      - hashing
+      - shortest paths
+      - start and finish times
+      - topological sorting

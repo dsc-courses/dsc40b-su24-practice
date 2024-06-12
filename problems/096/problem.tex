@@ -1,0 +1,23 @@
+%% source: 2023-sp-midterm_02
+%% tags: [hashing]
+\begin{prob}
+    Suppose a hash table in constructed so that collisions are resolved through chaining. The hash
+    table has a number of bins $k$ that is $\Theta(n)$, where $n$ is the number of elements being
+    stored in the hash table; that is, the hash table grows as more elements are inserted.
+
+    Suppose the hash function uses only the first $k / 2$ bins of the hash table, but appears to
+    hash items into these bins evenly.
+
+    What is the expected time complexity of a membership query on
+    this hash table? State your answer in asymptotic notation in terms of the
+    number of elements in the hash table, $n$.
+
+    \begin{soln}
+        $\Theta(1)$
+
+        Since only $k/2$ bins are being used, the expected number of elements
+        within each bin is $n / (k/2) = 2n / k$. But since $k = \Theta(n)$, this
+        is just $\Theta(1)$.
+    \end{soln}
+
+\end{prob}

@@ -1,0 +1,41 @@
+%% source: 2023-sp-midterm_02
+%% tags: [depth first search, start and finish times]
+\begin{prob}
+    Let $G$ be a graph, and suppose $s$, $u$, and $v$ are three nodes in the graph.
+
+    Suppose a depth-first search (DFS) is run on $G$ using node $s$ as the
+    source and adopting the convention that a node's neighbors are produced in
+    ascending order by label. During this DFS, start and finish times are
+    computed. Suppose it is found that:
+    \[
+        \text{start}[u]
+        <
+        \text{start}[v]
+        <
+        \text{finish}[v]
+        <
+        \text{finish}[u]
+    \]
+
+    Now suppose another DFS is run using node $s$ as the source, but adopting a different
+    convention about the order in which neighbors are produced. Suppose \mintinline{python}{new_start}
+    and \mintinline{python}{new_finish} are the start and finish times found by this second DFS. True
+    or False: it must be that
+
+    \[
+        \text{new_start}[u]
+        <
+        \text{new_start}[v]
+        <
+        \text{new_finish}[v]
+        <
+        \text{new_finish}[u]
+    \]
+
+    \tF
+
+    \begin{soln}
+        False.
+    \end{soln}
+
+\end{prob}

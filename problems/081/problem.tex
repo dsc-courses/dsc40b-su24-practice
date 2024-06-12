@@ -1,0 +1,50 @@
+%% source: 2023-sp-redemption_midterm_01
+%% tags: [mergesort, recursion]
+\begin{prob}
+
+    Consider the code for \mintinline{python}{mergesort} and \mintinline{python}{merge} where a new
+    \mintinline{python}{print}-statement has been added to \mintinline{python}{merge}:
+
+    \begin{minted}{python}
+        def mergesort(arr):
+            """Sort array in-place."""
+            if len(arr) > 1:
+                middle = math.floor(len(arr) / 2)
+                left = arr[:middle]
+                right = arr[middle:]
+                mergesort(left)
+                mergesort(right)
+                merge(left, right, arr)
+
+        def merge(left, right, out):
+            """Merge sorted arrays, store in out."""
+            left.append(float('inf'))
+            right.append(float('inf'))
+            left_ix = 0
+            right_ix = 0
+
+            for ix in range(len(out)):
+                print("Here!") # <---- the newly-added line
+                if left[left_ix] < right[right_ix]:
+                    out[ix] = left[left_ix]
+                    left_ix += 1
+                else:
+                    out[ix] = right[right_ix]
+                    right_ix += 1
+    \end{minted}
+
+    Suppose \mintinline{python}{mergesort} is called on an array of size $n$. In total, how
+    many times will \mintinline{python}{"Here!"} be printed?
+
+    \begin{choices}
+        \choice $\Theta(\log n)$
+        \choice $\Theta(n)$
+        \correctchoice $\Theta(n \log n)$
+        \choice $\Theta(n^2)$
+    \end{choices}
+
+    \begin{soln}
+        $\Theta(n \log n)$
+    \end{soln}
+
+\end{prob}

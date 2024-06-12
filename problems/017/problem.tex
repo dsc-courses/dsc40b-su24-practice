@@ -1,0 +1,33 @@
+%% source: 2022-fa-redemption_midterm_01
+%% tags: [binary search, verifying recursion]
+\begin{prob}
+
+    Suppose we modify \mintinline{python}{binary_search} so that instead of using the floor operation
+    to find the middle element of the array, we use the ceiling operation (recall that the
+    ceiling of a real number $x$ is the smallest integer that is $\geq x$). The full code is
+    shown below for convenience:
+
+    \inputminted{python}{./code.py}
+
+    Which of the following statements about the correctness of
+    \mintinline{python}{new_binary_search} is true? You may assume that \mintinline{python}{arr} will
+    be a list containing at least one number, and that the initial call to
+    \mintinline{python}{new_binary_search} will be with \mintinline{python}{start = 0} and \mintinline{python}{stop
+    = len(arr) - 1}.
+
+    \begin{choices}
+        \choice \mintinline{python}{new_binary_search} is guaranteed to work correctly (it will find the index of
+        the target, if the target is in the array, and return \mintinline{python}{None} otherwise).
+        \correctchoice \mintinline{python}{new_binary_search} may recurse infinitely
+        \choice \mintinline{python}{new_binary_search} may raise an \mintinline{python}{IndexError}
+        because it may attempt to access an element of the array which does not
+        exist
+        \choice \mintinline{python}{new_binary_search} is guaranteed to return without
+        raising an exception, but it may sometimes return the wrong answer
+    \end{choices}
+
+    \begin{soln}
+        \mintinline{python}{new_binary_search} may recurse infinitely
+    \end{soln}
+
+\end{prob}

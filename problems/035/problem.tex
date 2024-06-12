@@ -1,0 +1,27 @@
+%% source: 2021-fa-midterm_01
+%% tags: [binary search, recursion]
+\begin{prob}
+    Suppose \mintinline{python}{binary_search} has been called on an array \mintinline{python}{arr}
+    with a target \mintinline{python}{t} that is not necessarily in the array, and with
+    start and stop indices \mintinline{python}{start} and \mintinline{python}{stop}, respectively
+    (remember, our convention is that the start index is included, while the
+    stop index is excluded from the search). Which of the following must be true?
+    \textbf{Mark all which apply}. You may assume that \mintinline{python}{stop - start} $\geq 1$.
+
+    Note: remember that any statement about an empty array is considered to be
+    automatically true. Also, you cannot assume that this call to \mintinline{python}{binary_search}
+    is the \textit{root} call (it could be a recursive call).
+
+    \begin{choices}
+        \choice  \mintinline{python}{arr[start] < t < arr[stop]}
+        \choice  \mintinline{python}{arr[start] < t < arr[stop - 1]}
+        \correctchoice  \mintinline{python}{arr[:start] < t}. That is, everything up to but
+            excluding \mintinline{python}{arr[start]} is less than the target.
+        \correctchoice  \mintinline{python}{arr[stop:] > t}. That is, everything after \mintinline{python}{stop},
+            including the element at \mintinline{python}{stop}, is greater than the target.
+    \end{choices}
+
+    \begin{soln}
+        The last two answers are both correct.
+    \end{soln}
+\end{prob}

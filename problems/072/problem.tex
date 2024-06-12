@@ -1,0 +1,23 @@
+%% source: 2023-sp-midterm_01
+%% tags: [time complexity]
+\begin{prob}
+    Suppose \mintinline{python}{bar} and \mintinline{python}{baz} are two functions.
+    Suppose \mintinline{python}{bar}'s time complexity is $\Theta(n^3)$, while \mintinline{python}{baz}'s
+    time complexity is $\Theta(n^2)$.
+
+    Suppose \mintinline{python}{foo} is defined as below:
+
+    \begin{minted}{python}
+        def foo(n):
+            if n < 1_000:
+                bar(n)
+            else:
+                baz(n)
+    \end{minted}
+
+    What is the asymptotic time complexity of \mintinline{python}{foo}?
+
+    \begin{soln}
+        $\Theta(n^2)$
+    \end{soln}
+\end{prob}

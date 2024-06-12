@@ -1,0 +1,37 @@
+%% source: 2023-sp-midterm_01
+%% tags: [binary search]
+\begin{prob}
+    Consider the version of binary search shown below:
+
+    \begin{minted}{python}
+        import math
+        def binary_search(arr, t, start, stop):
+            """
+            Searches arr[start:stop] for t.
+            Assumes arr is sorted.
+            """
+            if stop - start <= 0:
+                return None
+            middle = math.floor((start + stop)/2)
+            if arr[middle] == t:
+                return middle
+            elif arr[middle] > t:
+                return binary_search(arr, t, start, middle)
+            else:
+                return binary_search(arr, t, middle+1, stop)
+    \end{minted}
+
+    True or false: if the target element \mintinline{python}{t} occurs multiple times
+    in the array, \mintinline{python}{binary_search} is guaranteed to return the first
+    occurrence.
+
+    You may assume that \mintinline{python}{arr} is sorted and that
+    \mintinline{python}{binary_search(arr, t, 0, len(arr))} is called.
+
+    \tF{}
+
+    \begin{soln}
+        False.
+    \end{soln}
+
+\end{prob}

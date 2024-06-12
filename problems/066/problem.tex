@@ -1,0 +1,20 @@
+%% source: 2023-sp-midterm_01
+%% tags: [time complexity]
+\begin{prob}
+    Express the time complexity of the following code using asymptotic
+    notation in as simplest terms possible.
+
+    \begin{minted}{python}
+        def foo(n):
+            for i in range(n**3):
+                for j in range(n):
+                    print(i + j)
+                for j in range(n**2):
+                    print(i + j)
+    \end{minted}
+
+    \begin{soln}
+        $\Theta(n^5)$
+    \end{soln}
+
+\end{prob}

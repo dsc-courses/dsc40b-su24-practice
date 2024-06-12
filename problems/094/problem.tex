@@ -1,0 +1,38 @@
+%% source: 2023-sp-redemption_midterm_01
+%% tags: [time complexity]
+\begin{prob}
+    Suppose \mintinline{python}{bar} and \mintinline{python}{baz} are two functions.
+    Suppose \mintinline{python}{bar}'s time complexity is $\Theta(n^2)$, while \mintinline{python}{baz}'s
+    time complexity is $\Theta(n)$.
+
+    Suppose \mintinline{python}{foo} is defined as below:
+
+    \begin{minted}{python}
+        def foo(n):
+            # will be True if n is even, False otherwise
+            is_even = (n % 2) == 0
+            if is_even:
+                bar(n)
+            else:
+                baz(n)
+    \end{minted}
+
+    Let $T(n)$ be the time taken by \mintinline{python}{foo} on an input of sized $n$.
+    True or False: $T(n) = \Theta(n^2)$.
+
+    \tF{}
+
+    \begin{soln}
+        False.
+
+        This function is not $\Theta(n^2)$. For that matter, it is also not $\Theta(n)$.
+        It \textit{is} $O(n^2)$ and $\Omega(n)$, though.
+
+        This function cannot be $\Theta(n^2)$ because there are no positive constants
+        $c, n_0$ such that $T(n) > c n^2$ for all $n > n_0$. You can see this by imagining
+        the plot of the time taken by \mintinline{python}{foo} as a function of $n$.
+        It "oscillates" between something that grows like $n$ and something that grows
+        like $n^2$. If you tried to lower bound it with $cn^2$, $T(n)$ would eventually
+        dip below $cn^2$, since $cn^2$ grows faster than $n$.
+    \end{soln}
+\end{prob}

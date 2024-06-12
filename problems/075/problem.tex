@@ -1,0 +1,19 @@
+%% source: 2023-sp-midterm_01
+%% tags: [loop invariants, quickselect]
+\begin{prob}
+    Recall the partition operation from \mintinline{python}{quickselect}.
+    Which of the following arrays could have been partitioned at least once?
+    Select all that apply.
+
+    \begin{choices}[rectangle]
+        \choice \mintinline{python}{[50, 10, 20, 30, 60, 40]}
+        \correctchoice \mintinline{python}{[20, 10, 30, 60, 40, 50]}
+        \correctchoice \mintinline{python}{[20, 50, 10, 40, 30, 60]}
+        \choice \mintinline{python}{[60, 50, 40, 30, 20, 10]}
+        \correctchoice \mintinline{python}{[10, 20, 30, 40, 50, 60]}
+    \end{choices}
+
+    \begin{soln}
+        The second, third, and last all should be selected.
+    \end{soln}
+\end{prob}

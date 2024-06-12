@@ -1,0 +1,42 @@
+%% source: 2023-sp-midterm_01
+%% tags: [recursion, verifying recursion]
+\begin{prob}
+    Consider the code below which claims to compute the most common
+    element in the array, returning a pair: the element along with the
+    number of times it appears.
+
+    \inputminted{python}{./code.py}
+
+    You may assume that the function is always called on a non-empty array,
+    and with \mintinline{python}{start = 0} and \mintinline{python}{stop = len(arr)}.
+    Will this code always return the correct answer (the most common element)?
+
+    \begin{choices}
+        \choice Yes: it will always return the correct answer.
+        \choice No: it may recurse infinitely.
+        \choice No: it may try to access the array at an invalid index.
+        \correctchoice No: it will run without error, but the element returned may
+            not be the most common element in the array.
+    \end{choices}
+
+    \begin{soln}
+        No: it will run without error, but the element returned may
+            not be the most common element in the array.
+
+        It is not true in general that the most common element in the array is
+        the most common in the left or the right. As a simple example, take:
+        \mintinline{python}{[1,1,1,0,0,2,2,2,0,0]}.
+        1 is the most common in the left half, and 2 is the most common in the right half,
+        but 0 is the most common overall.
+
+        So even if we assume that \mintinline{python}{most_common(arr, start, middle)}
+        finds the most common element in left half of the array, and
+        \mintinline{python}{most_common(arr, middle, stop)} finds the most common element
+        in the right of the array, it is not necessarily the case that the most
+        common between them is the overall most common in the array.
+
+        You can also quickly see that the code cannot be correct because nowhere
+        is a count greater than one ever returned.
+    \end{soln}
+
+\end{prob}

@@ -1,0 +1,73 @@
+%% source: 2021-fa-midterm_01
+%% tags: [recurrence relations]
+\begin{prob}
+    Solve the below recurrence, stating the solution in asymptotic notation. Show your work.
+    \[
+        T(n) =
+        \begin{cases}
+            2 T(n/4) + \Theta(n) & n > 1 \\
+            c & n = 1
+        \end{cases}
+    \]
+
+    \begin{soln}
+        $\Theta(n)$.
+
+        We'll unroll several times:
+
+        \[
+        \begin{aligned}
+            T(n)
+            &=
+                2 T(n/4) + n
+                \\
+            &=
+                4 T(n/16) + \frac{n}{2} + n
+                \\
+            &=
+            8 T(n/64) + \frac{n}{4} + \frac{n}{2} + n
+                \\
+        \end{aligned}
+        \]
+
+        The pattern seems to be that on the $k$th unroll:
+        \[
+            T(n) = 2^k T\left( \frac{n}{4^k} \right) +
+                n \left(
+                    1 + \frac12 + \frac14 + \ldots + \frac{1}{2^{k-1}}
+                \right)
+        \]
+
+        The base case is reached when $k = \log_4 n$. Plugging this back in, we find:
+        \[
+            T(n) = 2^{\log_4 n} T(1) + n \left(1 + \frac12 + \frac 14 + \ldots + \frac{1}{2^{\log_4 n - 1}}\right)
+        \]
+
+        If you reached this point, you got most of the credit. If you're unsure
+        of what to do with $2^{\log_4 n}$, there are a couple of ways foward.
+
+        The first (and easiest) way is to realize that $2^{\log_4 n}$ is
+        smaller than $2^{\log_2 n} = n$, so $2^{\log_4 n} = O(n)$. Similarly,
+        we've seen the summation of $1 + 1/2 + 1/4 + \ldots$ several times --
+        this is a \textit{geometric} sum, and converges to 2 when there are
+        infinitely many terms. There are a finite number of terms here, so the
+        sum is $< 2$. Altogether, we have:
+        \[
+            T(n) = O(n) T(1) + n \Theta(1) = \Theta(n)
+        \]
+
+        The second approach is to remember log properties to simplify $2^{\log_4 n}$ to $\sqrt{n}$. This can be seen
+        by using the ``change of base'' formula:
+        \[
+            \log_b x = \frac{\log_a x}{\log_a b}.
+        \]
+        In this case:
+        \[
+            \log_4 n = \frac{\log_2 n}{\log_2 4} = \frac{\log_2 n}{2}
+        \]
+        And therefore $2^{\log_4 n} = 2^{(\log_2 n) / 2} = \left(2^{\log_2
+        n}\right)^{1/2} = n^{1/2} = \sqrt n$. This shows that the first term in
+        the recurrence is $\Theta(\sqrt n)$. The second term is still
+        $\Theta(n)$, so the solution is $\Theta(n)$.
+    \end{soln}
+\end{prob}

@@ -1,0 +1,16 @@
+%% source: 2023-sp-midterm_01
+%% tags: [mergesort, recurrence relations]
+\begin{prob}
+    Consider the modification of \mintinline{python}{mergesort} shown below, where one of the
+    recursive calls has been replaced by an in-place version of
+    \mintinline{python}{selection_sort}. Recall that \mintinline{python}{selection_sort} takes $\Theta(n^2)$
+    time.
+
+    \inputminted{python}{./code.py}
+
+    What is the time complexity of \mintinline{python}{kinda_mergesort}?
+
+    \begin{soln}
+        $\Theta(n^2)$
+    \end{soln}
+\end{prob}

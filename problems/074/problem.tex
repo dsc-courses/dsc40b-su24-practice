@@ -1,0 +1,43 @@
+%% source: 2023-sp-midterm_01
+%% tags: [binary search, loop invariants]
+\begin{prob}
+    Consider \mintinline{python}{iterative_binary_search} below and note the
+    \mintinline{python}{print} statement in the
+    \mintinline{python}{while}-loop:
+
+    \begin{minted}[autogobble]{python}
+        import math
+
+        def iterative_binary_search(arr, target):
+
+            start = 0
+            stop = len(arr)
+
+            while (stop - start) > 0:
+                print(arr[start])
+                middle = math.floor((start + stop) / 2)
+                if arr[middle] == target:
+                    return middle
+                elif arr[middle] > target:
+                    stop = middle
+                else:
+                    start = middle + 1
+
+            return None
+    \end{minted}
+
+    Suppose \mintinline{python}{iterative_binary_search}
+    is run on the array:
+
+    \begin{minted}[autogobble]{python}
+        [-202, -201, -200, -50, -20, -10, -4, -3, 0, 1, 3, 5, 6, 7, 9, 10, 12, 15, 22]
+    \end{minted}
+
+    with target \mintinline{python}{11}.
+
+    What will be the last value of \mintinline{python}{arr[start]} printed?
+
+    \begin{soln}
+        10
+    \end{soln}
+\end{prob}

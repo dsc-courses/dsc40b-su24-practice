@@ -1,0 +1,49 @@
+%% source: 2023-sp-redemption_midterm_01
+%% tags: [binary search, recursion, verifying recursion]
+\begin{prob}
+
+    Suppose we modify \mintinline{python}{binary_search} so that instead of using the floor operation
+    to find the middle element of the array, we use the ceiling operation (recall that the
+    ceiling of a real number $x$ is the smallest integer that is $\geq x$). The full code is
+    shown below for convenience:
+
+    \inputminted{python}{./code.py}
+
+    You may assume that \mintinline{python}{arr} will be a sorted list containing at least
+    one number, and that the initial call to \mintinline{python}{new_binary_search} will be
+    with \mintinline{python}{start = 0} and \mintinline{python}{stop = len(arr)}.
+
+    \begin{subprobset}
+
+        \begin{subprob}
+
+            True or False:
+            there are input arrays on which
+            \mintinline{python}{new_binary_search} will recurse infinitely.
+
+            \Tf{}
+
+            \begin{soln}
+                True.
+            \end{soln}
+
+        \end{subprob}
+
+        \begin{subprob}
+
+            True or False: there are input arrays on which
+            \mintinline{python}{new_binary_search} will raise an \mintinline{python}{IndexError}
+            because it attempts to access an element of the array which does
+            not exist.
+
+            \Tf{}
+
+            \begin{soln}
+                True.
+            \end{soln}
+
+        \end{subprob}
+
+    \end{subprobset}
+
+\end{prob}

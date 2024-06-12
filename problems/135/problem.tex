@@ -1,0 +1,17 @@
+%% tags: [bellman-ford]
+%% source: 2023-sp-redemption_midterm_02
+\begin{prob}
+    Again consider a ``2-chain'' graph, which was defined above to the a graph
+    with $n$ nodes that is constructed by taking $n$ nodes labeled 1, 2, $\ldots$,
+    $n$, and, for each node $u$, making an edge to nodes $u + 1$ and $u + 2$
+    (if they are in the graph).
+
+    Suppose the Bellman-Ford algorithm without early stopping is run on a
+    2-chain graph with $n$ nodes, using node 1 as the source. What is the time
+    taken as a function of $n$? State your answer using asymptotic notation.
+
+    \begin{soln}
+        $\Theta(n^2)$
+    \end{soln}
+
+\end{prob}

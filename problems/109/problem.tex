@@ -1,0 +1,21 @@
+%% source: 2023-sp-midterm_02
+%% tags: [breadth first search, aggregate analysis]
+\begin{prob}
+    Consider the code below, which is a modification of the code for
+    \mintinline{python}{bfs} given in lecture:
+
+    \inputminted{python}{./code.py}
+
+    Notice the two new lines; these lines print all node statuses any time that
+    an undiscovered node has been found.
+
+    What is the time complexity of this modified \mintinline{python}{modified_full_bfs}?
+    State your answer in asymptotic notation in terms of the number of nodes,
+    $|V|$, and the number of edges, $|E|$. You may assume that the graph is
+    represented using an adjacency list.
+
+    \begin{soln}
+        $\Theta(V^2)$
+    \end{soln}
+
+\end{prob}

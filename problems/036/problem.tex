@@ -1,0 +1,18 @@
+%% source: 2021-fa-midterm_01
+%% tags: [theoretical lower bounds]
+\begin{prob}
+    Suppose you are given a (possibly unsorted) array of $n$ floating point numbers and are tasked with counting the number
+    of elements in the array which are within ten of the array's maximum (you are not told the maximum).
+    That is, you must count the number of elements $x$ such that $m - x \geq 10$, where $m$ is the array's
+    maximum. You may assume that the array does not contain duplicate numbers.
+
+    What is the \textbf{tight} theoretical lower bound for the worst case time complexity of this problem?
+
+    \begin{soln}
+        $\Theta(n)$.
+
+        It takes $\Theta(n)$ time to find the maximum. After this, we loop through and keep track of how many
+        elements are within ten of the maximum -- this also takes $\Theta(n)$ time.
+    \end{soln}
+
+\end{prob}

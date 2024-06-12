@@ -1,0 +1,57 @@
+%% source: 2023-sp-midterm_01
+%% tags: [recurrence relations]
+\begin{prob}
+    Solve the below recurrence, stating the solution in asymptotic notation. Show your work.
+    \[
+        T(n) =
+        \begin{cases}
+            T(n/2) + \Theta(n) & n > 1 \\
+            \Theta(1) & n = 1
+        \end{cases}
+    \]
+
+    \begin{soln}
+        $\Theta(n)$.
+
+        Unrolling several times, we find:
+
+        \[
+            T(n)
+            =
+                T(n/2) + n
+                \\
+            =
+                T(n/4) + \frac{n}{2} + n
+                \\
+            =
+                T(n/8) + \frac{n}{4} + \frac{n}{2} + n
+                \\
+        \]
+
+        On the $k$th unroll, we'll get:
+        \[
+            T(n) = T(n/2^k) + \left[
+                n + \frac{n}{2} + \frac{n}{4} + \ldots + \frac{n}{2^{k-1}}
+            \right]
+        \]
+
+        It will take $\log_2 n$ unrolls to each the base case. Substituting this for
+        $k$, we get:
+        \[
+        \begin{aligned}
+            T(n)
+            &= T(n/2^{\log_2 n}) + \left[
+                n + \frac{n}{2} + \frac{n}{4} + \ldots + \frac{n}{2^{(\log_2 n)-1}}
+            \right]
+            \\
+            &= T(1) + n\left[
+                1 + \frac{1}{2} + \frac{1}{4} + \ldots + \frac{1}{2^{(\log_2 n)-1}}
+            \right]
+            & = T(1) + c n\\
+            & = \Theta(1) + c n\\
+            &= \Theta(n)
+        \end{aligned}
+        \]
+
+    \end{soln}
+\end{prob}
