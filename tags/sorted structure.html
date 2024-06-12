@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <title>DSC 40B Practice Problems</title>
+        <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+        <link rel="stylesheet" href="../style.css">
+
+        <!-- MathJax -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            tex: {
+              inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+              displayMath: [             // start/end delimiter pairs for display math
+                  ['\\[', '\\]']
+              ],
+              processEscapes: true
+            }
+          });
+        </script>
+
+        <!-- highlightjs -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+        <script>hljs.highlightAll();</script>
+
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+
+    </head>
+    <body data-color-scheme="light">
+        <div style="margin: .5em 0em; font-size: 2em;">
+            <a href="..">DSC 40B Practice Problems</a>
+        </div>
+
+        
+<h1>Problems tagged with "sorted structure"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #008</h2>
+        <p>Tags: <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a>, <a href='../tags/sorted structure.html'>sorted structure</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the same problem as above, except now you may assume that the array is <b>sorted</b>. What is the <b>tight</b> theoretical lower bound for the worst case time complexity of any algorithm which solves this problem?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(1)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #065</h2>
+        <p>Tags: <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a>, <a href='../tags/sorted structure.html'>sorted structure</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are two numbers, with <span class="math">\(a \leq b\)</span>. Consider the problem of counting the number of elements in an array which are between <span class="math">\(a\)</span> and <span class="math">\(b\)</span>; that is, the number of elements <span class="math">\(x\)</span> such that <span class="math">\(a
+    \leq x \leq b\)</span>. You may assume for simplicity that both <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are in the array, and there are no duplicates.</p>
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 1)</h3>
+<p>What is a <b>tight</b> theoretical lower bound for this problem, assuming that the array is <b>unsorted</b>? State your answer in asymptotic notation as a function of the number of elements in the array, <span class="math">\(n\)</span>.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p>Since the array is in arbitrary order, we have to at least read all of the elements, taking <span class="math">\(\Omega(n)\)</span> time. This is a tight lower bound, because we can count the number of elements between <span class="math">\(a\)</span> and <span class="math">\(b\)</span> by looping through and checking whether each element is in <span class="math">\([a, b]\)</span> in linear time.</p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 2)</h3>
+<p>What is a <b>tight</b> theoretical lower bound for this problem, assuming that the array is <b>sorted</b>? State your answer in asymptotic notation as a function of the number of elements in the array, <span class="math">\(n\)</span>.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log n)\)</span>.</p>
+<p>We can do this in worst-case <span class="math">\(\Theta(\log n)\)</span> time with binary search: find the index of <span class="math">\(a\)</span> in worst-case <span class="math">\(\Theta(\log n)\)</span> time; find the index of <span class="math">\(b\)</span> in worst-case <span class="math">\(\Theta(\log n)\)</span> time; and subtract the two indices (and add one) to get the total number of elements between <span class="math">\(a\)</span> and <span class="math">\(b\)</span>, inclusive.</p>
+<p>There cannot be an algorithm that is better than <span class="math">\(\Theta(\log n)\)</span> in the worst case, so this is a tight lower bound. To see why, recognize that we can solve the query problem (determine True/False if a target <span class="math">\(t\)</span> is in a sorted array) with any algorithm that solves this problem by setting <span class="math">\(a = b = t\)</span>. If an algorithm solves this problem in faster than <span class="math">\(\Theta(\log n)\)</span>, it will also solve the query problem in faster than <span class="math">\(\Theta(\log n)\)</span>, but we saw in class that the query problem has a theoretical lower bound of <span class="math">\(\Theta(\log n)\)</span>, so such an algorithm cannot exist.</p>
+</details>
+
+</div>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+    </body>
+</html>

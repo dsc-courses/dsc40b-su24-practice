@@ -1,0 +1,183 @@
+<html>
+    <head>
+        <title>DSC 40B Practice Problems</title>
+        <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+        <link rel="stylesheet" href="../style.css">
+
+        <!-- MathJax -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            tex: {
+              inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+              displayMath: [             // start/end delimiter pairs for display math
+                  ['\\[', '\\]']
+              ],
+              processEscapes: true
+            }
+          });
+        </script>
+
+        <!-- highlightjs -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+        <script>hljs.highlightAll();</script>
+
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+
+    </head>
+    <body data-color-scheme="light">
+        <div style="margin: .5em 0em; font-size: 2em;">
+            <a href="..">DSC 40B Practice Problems</a>
+        </div>
+
+        
+<h1>Problems tagged with "bellman-ford"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #117</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Recall that the outer loop of the Bellman-Ford algorithm <i>without</i> early stopping loops for a fixed number of iterations, while the inner loop iterates over each edge of the graph.</p>
+<p>Suppose Bellman-Ford <i>with</i> early stopping is run on the graph below using node <span class="math">\(s\)</span> as the source:</p>
+<center><div class="image"><img src="../images/117/graph.png" /></div></center>
+<p>What is the fewest number of iterations of the outer loop that can possibly be performed?</p>
+<details>
+    <summary>Solution</summary>
+<p>2</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #118</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Recall that the Bellman-Ford algorithm keeps track of the estimated shortest path distance from the source to each node in the graph. These estimates are updated, and eventually become correct, provided that the graph has no negative cycles.</p>
+<p>Suppose the Bellman-Ford algorithm is run on the graph below using node <span class="math">\(s\)</span> as the source.</p>
+<center><div class="image"><img src="../images/118/graph.png" /></div></center>
+<p>After 2 iterations of the outer loop, which of the nodes listed below are guaranteed to have correct estimated shortest path distances (no matter the order in which <span class="inline-code"><code>graph.nodes</code></span> produces the graph's nodes)? Select all that apply.</p>
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(s\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(u_1\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(u_2\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(u_3\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(u_4\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(u_5\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="math">\(u_6\)</span></p></label></div></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(u_3\)</span>, <span class="math">\(u_4\)</span>, and <span class="math">\(u_5\)</span> are guaranteed to have correct estimated shortest path distances after 2 iterations of the outer loop. <span class="math">\(s\)</span> is guaranteed to have a correct estimated shortest path distance after 1 iteration of the outer loop.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #119</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose the Bellman-Ford algorithm is run on a graph <span class="math">\(G\)</span> that does not contain negative cycles. Let <span class="math">\(u\)</span> be an arbitrary node in the graph, and assume that <span class="math">\(u\)</span> is reachable from the source.</p>
+<p>True or False: <span class="math">\(u\)</span>'s estimated distance can change multiple times during the algorithm's execution.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #134</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose the Bellman-Ford algorithm with early stopping is run on the weighted graph shown below using node <span class="math">\(s\)</span> as the source (the edge weights are intentionally not shown). In the worst case, how many iterations of Bellman-Ford will be performed? That is, how many iterations of the outer <span class="inline-code"><code>for</code></span>-loop will occur?</p>
+<center><div class="image"><img src="../images/134/g6.png" /></div></center>
+<details>
+    <summary>Solution</summary>
+<p>7</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #135</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Again consider a ``2-chain'' graph, which was defined above to the a graph with <span class="math">\(n\)</span> nodes that is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math">\(\ldots\)</span>, <span class="math">\(n\)</span>, and, for each node <span class="math">\(u\)</span>, making an edge to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span>(if they are in the graph).</p>
+<p>Suppose the Bellman-Ford algorithm without early stopping is run on a 2-chain graph with <span class="math">\(n\)</span> nodes, using node 1 as the source. What is the time taken as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #163</h2>
+        <p>Tags: <a href='../tags/bellman-ford.html'>bellman-ford</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Recall that Bellman-Ford with early stopping updates edges iteratively until no estimated distances change, at which point the algorithm terminates early. True or False: the number of iterations needed before early termination may depend on the order in which the edges are updated.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>True</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+    </body>
+</html>

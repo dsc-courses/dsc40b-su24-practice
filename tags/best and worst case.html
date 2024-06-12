@@ -1,0 +1,288 @@
+<html>
+    <head>
+        <title>DSC 40B Practice Problems</title>
+        <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+        <link rel="stylesheet" href="../style.css">
+
+        <!-- MathJax -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            tex: {
+              inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+              displayMath: [             // start/end delimiter pairs for display math
+                  ['\\[', '\\]']
+              ],
+              processEscapes: true
+            }
+          });
+        </script>
+
+        <!-- highlightjs -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+        <script>hljs.highlightAll();</script>
+
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+
+    </head>
+    <body data-color-scheme="light">
+        <div style="margin: .5em 0em; font-size: 2em;">
+            <a href="..">DSC 40B Practice Problems</a>
+        </div>
+
+        
+<h1>Problems tagged with "best and worst case"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #005</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>best case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<pre class="code"><code>
+def foo(arr):
+    """`arr` is a list containing n numbers."""
+    previous = None
+    n = len(arr)
+    for x in arr:
+        if x == previous:
+            for i in range(n**2):
+                print('Equal!')
+            return
+        previous = x
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #006</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>worst case</b> time complexity of the function in the previous problem?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #018</h2>
+        <p>Tags: <a href='../tags/mergesort.html'>mergesort</a>, <a href='../tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>True or False: the <b>best case</b> time complexity of mergesort is <span class="math">\(\Theta(n)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #023</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>The below code takes in an array of numbers and returns the index of the first maximum. What is this code's <b>best case</b> time complexity?</p>
+<pre class="code"><code>
+def index_of_maximum(arr):
+    """`arr` is an array with n elements."""
+    for i, x in enumerate(arr):
+        if x == max(arr):
+            return i
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #040</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>The below code takes in an array of numbers and returns the index of the first maximum.</p>
+<pre class="code"><code>
+def foo(arr):
+    """`arr` is an array with n elements."""
+    for i, x in enumerate(arr):
+        if x == max(arr):
+            return i
+
+</code></pre>
+
+<p>What is the <b>worst case</b> time complexity of the function?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #051</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>The code below takes in an array of <span class="math">\(n\)</span> numbers and checks whether there is a pair of numbers in the array which, when added together, equal the maximum element of the array.</p>
+<p>What is the <b>best case</b> time complexity of this code as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
+<pre class="code"><code>
+def exists_pair_summing_to_max(arr):
+    n = len(arr)
+    maximum = max(arr)
+    for i in range(n):
+        for j in range(i + 1, n):
+            if arr[i] + arr[j] == maximum:
+                return True
+    return False
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #067</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>worst case</b> time complexity of the function in the last problem? State your answer using asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #078</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>best case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<pre class="code"><code>
+def foo(arr):
+    """`arr` is a list containing n numbers."""
+    previous = None
+    n = len(arr)
+    for x in arr:
+        if x == previous:
+            for i in range(n**2):
+                print('Equal!')
+            return
+        previous = x
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #084</h2>
+        <p>Tags: <a href='../tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>True or False: the <b>best case</b> time complexity of mergesort is <span class="math">\(\Theta(n)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+    </body>
+</html>

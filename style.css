@@ -1,0 +1,42 @@
+div.problem {
+    margin-bottom: 2em;
+    padding-bottom: 2em;
+    padding-right: 1em;
+}
+
+div.problem-tags {
+    font-weight: bold;
+    font-style: italic;
+    margin: 1em;
+    margin-left: 0;
+}
+
+
+details {
+}
+
+details summary {
+}
+
+details p {
+}
+
+div.true-false {
+    margin-bottom: 1em;
+}
+
+div.problem img {
+    width: 50%;
+}
+
+div.choice label {
+    display: flex;
+    margin-bottom: 1em;
+}
+
+div.choice p {
+    margin: 0;
+    padding: 0;
+    margin-left: .5em;
+    margin-right: .5em;
+};

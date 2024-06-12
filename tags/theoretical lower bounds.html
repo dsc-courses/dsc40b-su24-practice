@@ -1,0 +1,244 @@
+<html>
+    <head>
+        <title>DSC 40B Practice Problems</title>
+        <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+        <link rel="stylesheet" href="../style.css">
+
+        <!-- MathJax -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            tex: {
+              inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+              displayMath: [             // start/end delimiter pairs for display math
+                  ['\\[', '\\]']
+              ],
+              processEscapes: true
+            }
+          });
+        </script>
+
+        <!-- highlightjs -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+        <script>hljs.highlightAll();</script>
+
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+
+    </head>
+    <body data-color-scheme="light">
+        <div style="margin: .5em 0em; font-size: 2em;">
+            <a href="..">DSC 40B Practice Problems</a>
+        </div>
+
+        
+<h1>Problems tagged with "theoretical lower bounds"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #007</h2>
+        <p>Tags: <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose you are given a (possibly unsorted) array containing <span class="math">\(n\)</span> elements. Each element is either zero or one. You are tasked with determining if the majority (at least half) of the array's elements are one.</p>
+<p>What is the <b>tight</b> theoretical lower bound for the worst case time complexity of this problem?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #008</h2>
+        <p>Tags: <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a>, <a href='../tags/sorted structure.html'>sorted structure</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the same problem as above, except now you may assume that the array is <b>sorted</b>. What is the <b>tight</b> theoretical lower bound for the worst case time complexity of any algorithm which solves this problem?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(1)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #036</h2>
+        <p>Tags: <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose you are given a (possibly unsorted) array of <span class="math">\(n\)</span> floating point numbers and are tasked with counting the number of elements in the array which are within ten of the array's maximum (you are not told the maximum). That is, you must count the number of elements <span class="math">\(x\)</span> such that <span class="math">\(m - x \geq 10\)</span>, where <span class="math">\(m\)</span> is the array's maximum. You may assume that the array does not contain duplicate numbers.</p>
+<p>What is the <b>tight</b> theoretical lower bound for the worst case time complexity of this problem?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p>It takes <span class="math">\(\Theta(n)\)</span> time to find the maximum. After this, we loop through and keep track of how many elements are within ten of the maximum -- this also takes <span class="math">\(\Theta(n)\)</span> time.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #038</h2>
+        <p>Tags: <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose you are given a (possibly unsorted) array of <span class="math">\(n\)</span> floating point numbers and are tasked with counting the number of elements in the array which are within ten of the array's maximum (you are not told the maximum). That is, you must count the number of elements <span class="math">\(x\)</span> such that <span class="math">\(m - x \geq 10\)</span>, where <span class="math">\(m\)</span> is the array's maximum. You may assume that the array does not contain duplicate numbers.</p>
+<p>Now you may assume that the array is <b>sorted</b>.</p>
+<p>This question has two parts:</p>
+<p>First, give the tight theoretical lower bound for the worst case time complexity of any algorithm which solves this problem:</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log n)\)</span></p>
+</details>
+
+<p>Second, give a short description of an optimal algorithm. Your description does not need to be exact or very long (3 to 4 sentences will do). You do not <i>need</i> to provide pseudocode, but you can if you wish.</p>
+<details>
+    <summary>Solution</summary>
+<p>The maximum <span class="math">\(m\)</span> can be found in <span class="math">\(\Theta(1)\)</span> time -- it is the last element of the array. Use binary search (<span class="math">\(\Theta(\log n)\)</span> time) to look for <span class="math">\(m - 10\)</span>, but modify the code so that the last-checked index is returned if <span class="math">\(m -
+        10\)</span> is not found (everything to the right of that index is at least <span class="math">\(m - 10\)</span>). Subtract this index from <span class="math">\(n\)</span> to find the number of elements within 10 of the maximum.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #063</h2>
+        <p>Tags: <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider again the problem of determining whether there exists a pair of numbers in an array which, when added together, equal the maximum number in the array. Additionally, <b>assume that the array is sorted</b>.</p>
+<p>True or False: <span class="math">\(\Theta(n)\)</span> is a <b>tight</b> theoretical lower bound for this problem.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+<p>Any algorithm must take <span class="math">\(\Omega(n)\)</span> time in the worst case, since in the worst case all elements of the array must be read.</p>
+<p>This is tight because there is an algorithm that will compute the answer in worst-case <span class="math">\(\Theta(n)\)</span> time. Namely, this is an instance of the ``movie problem'' from lecture, where instead of finding two numbers which add to an arbitrary target, we're looking for a specific target: the maximum. We saw an algorithm that solved the movie problem in <span class="math">\(\Theta(n)\)</span> time, where <span class="math">\(n\)</span> was the number of movies. Since the maximum is computed in <span class="math">\(\Theta(1)\)</span> time for a sorted array, we can use the same algorithm to solve this in <span class="math">\(\Theta(n)\)</span> time as well.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #065</h2>
+        <p>Tags: <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a>, <a href='../tags/sorted structure.html'>sorted structure</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are two numbers, with <span class="math">\(a \leq b\)</span>. Consider the problem of counting the number of elements in an array which are between <span class="math">\(a\)</span> and <span class="math">\(b\)</span>; that is, the number of elements <span class="math">\(x\)</span> such that <span class="math">\(a
+    \leq x \leq b\)</span>. You may assume for simplicity that both <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are in the array, and there are no duplicates.</p>
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 1)</h3>
+<p>What is a <b>tight</b> theoretical lower bound for this problem, assuming that the array is <b>unsorted</b>? State your answer in asymptotic notation as a function of the number of elements in the array, <span class="math">\(n\)</span>.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p>Since the array is in arbitrary order, we have to at least read all of the elements, taking <span class="math">\(\Omega(n)\)</span> time. This is a tight lower bound, because we can count the number of elements between <span class="math">\(a\)</span> and <span class="math">\(b\)</span> by looping through and checking whether each element is in <span class="math">\([a, b]\)</span> in linear time.</p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 2)</h3>
+<p>What is a <b>tight</b> theoretical lower bound for this problem, assuming that the array is <b>sorted</b>? State your answer in asymptotic notation as a function of the number of elements in the array, <span class="math">\(n\)</span>.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log n)\)</span>.</p>
+<p>We can do this in worst-case <span class="math">\(\Theta(\log n)\)</span> time with binary search: find the index of <span class="math">\(a\)</span> in worst-case <span class="math">\(\Theta(\log n)\)</span> time; find the index of <span class="math">\(b\)</span> in worst-case <span class="math">\(\Theta(\log n)\)</span> time; and subtract the two indices (and add one) to get the total number of elements between <span class="math">\(a\)</span> and <span class="math">\(b\)</span>, inclusive.</p>
+<p>There cannot be an algorithm that is better than <span class="math">\(\Theta(\log n)\)</span> in the worst case, so this is a tight lower bound. To see why, recognize that we can solve the query problem (determine True/False if a target <span class="math">\(t\)</span> is in a sorted array) with any algorithm that solves this problem by setting <span class="math">\(a = b = t\)</span>. If an algorithm solves this problem in faster than <span class="math">\(\Theta(\log n)\)</span>, it will also solve the query problem in faster than <span class="math">\(\Theta(\log n)\)</span>, but we saw in class that the query problem has a theoretical lower bound of <span class="math">\(\Theta(\log n)\)</span>, so such an algorithm cannot exist.</p>
+</details>
+
+</div>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #087</h2>
+        <p>Tags: <a href='../tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the following problem: given a (possibly unsorted) list of size <span class="math">\(n\)</span> containing only ones and zeros, determine if the number of ones is equal to the number of zeros.</p>
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 1)</h3>
+<p>What is a <b>tight</b> theoretical lower bound for this problem? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 2)</h3>
+<p>Now assume that the input array is guaranteed to have the following structure: there will be <span class="math">\(a\)</span> ones, followed by <span class="math">\(b\)</span> zeros, followed again by <span class="math">\(a\)</span> ones. An example of such an array is: <span class="inline-code"><code>[1, 1, 0, 0, 0, 1, 1]</code></span>. In this example, <span class="math">\(a = 2\)</span> and <span class="math">\(b = 3\)</span>.</p>
+<p>Consider the same problem as before: that is, given an array satisfying the above assumption, determine if the number of ones in the array is equal to the number of zeros. Of course, <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are not known ahead of time.</p>
+<p>What is a <b>tight</b> theoretical lower bound for this problem?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(1)\)</span> Let <span class="math">\(n\)</span> be the length of the array. Assume that <span class="math">\(n\)</span> is even (if it is odd, we can immediately say that there are not an equal number of ones and zeros). In fact, we can assume that <span class="math">\(n\)</span> is divisible by four, since <span class="math">\(n = a + b + a = 2a + b\)</span>, which must equal <span class="math">\(4a\)</span> if there are an equal number of ones and zeros.</p>
+<p>For there to be an equal number of ones as zeros, the middle <span class="math">\(n/2\)</span> elements must be zero, while the first <span class="math">\(n/4\)</span> and last <span class="math">\(n/4\)</span> must be ones. If that is the case, then the last one in the first group of ones will occur at index <span class="math">\(n / 4 - 1\)</span>, and the first zero will occur at <span class="math">\(n / 4 \)</span> A constant-time algorithm is to check the element at index <span class="math">\(n/4
+                - 1\)</span> and verify that it is a one. Then we check the element at index <span class="math">\(n/4 \)</span> and check that it is a zero.</p>
+<p>Consider, for example, this array with <span class="math">\(n = 10\)</span>:</p>
+<div class="math">\[\mintinline{python}{[1, 1, 1, 0, 0, 0, 0, 1, 1, 1]}\]</div>
+<p>Then <span class="math">\(n / 10 = 10 / 4 = 2.5 = 2\)</span>. Therefore, we check the elements at index 1 and 2 in constant time and find them to both be one, which tells us that this array does not have an equal number of zeros and ones.</p>
+<p>Now consider the array below:</p>
+<div class="math">\[\mintinline{python}{[1, 1, 0, 0, 0, 0, 1, 1]}\]</div>
+<p>Since <span class="math">\(n = 8\)</span>, we again check the elements at index 1 and 2. We find 1 and 0, which tells us that the array <i>does</i> have an equal number of zeros and ones, as expected.</p>
+</details>
+
+</div>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+    </body>
+</html>

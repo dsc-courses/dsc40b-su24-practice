@@ -1,0 +1,394 @@
+<html>
+    <head>
+        <title>DSC 40B Practice Problems</title>
+        <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+        <link rel="stylesheet" href="../style.css">
+
+        <!-- MathJax -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            tex: {
+              inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+              displayMath: [             // start/end delimiter pairs for display math
+                  ['\\[', '\\]']
+              ],
+              processEscapes: true
+            }
+          });
+        </script>
+
+        <!-- highlightjs -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+        <script>hljs.highlightAll();</script>
+
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+
+    </head>
+    <body data-color-scheme="light">
+        <div style="margin: .5em 0em; font-size: 2em;">
+            <a href="..">DSC 40B Practice Problems</a>
+        </div>
+
+        
+<h1>Problems tagged with "graph theory"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #098</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>An <i>undirected</i> graph has 5 nodes. What is the greatest number of edges it can have?</p>
+<details>
+    <summary>Solution</summary>
+<p>10</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #099</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>A <i>directed</i> graph has 10 <i>edges</i>. What is the <i>smallest</i> number of <i>nodes</i> it can have?</p>
+<details>
+    <summary>Solution</summary>
+<p>4</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #100</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a>, <a href='../tags/connected components.html'>connected components</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>An undirected graph with 20 nodes and 30 edges has three connected components: <span class="math">\(A\)</span>, <span class="math">\(B\)</span>, and <span class="math">\(C\)</span>. Connected component <span class="math">\(A\)</span> has 7 nodes. What is the smallest number of edges it can have?</p>
+<details>
+    <summary>Solution</summary>
+<p>6</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #101</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(v = \{a, b, c, d, e, f, g\}\)</span> and <span class="math">\(E = \{(a,g), (b,d), (d, e), (f, d)\}\)</span>. How many connected components does the undirected graph <span class="math">\(G =(V, E)\)</span> have?</p>
+<details>
+    <summary>Solution</summary>
+<p>3</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #102</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(G = (V, E)\)</span> be a directed graph with <span class="math">\(|V| > 1\)</span>. Suppose that every node in <span class="math">\(G\)</span> is reachable from every other node. True or False: each node in the graph must have an out-degree of at least one and an in-degree of at least one.</p>
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #122</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>An undirected graph <span class="math">\(G = (V, E)\)</span> has 23 nodes and 2 connected components. What is the <i>smallest</i> number of edges it can have?</p>
+<details>
+    <summary>Solution</summary>
+<p>21</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #123</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a>, <a href='../tags/connected components.html'>connected components</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(G = (V, E)\)</span> be an undirected graph, and suppose that <span class="math">\(u, v, \)</span> and <span class="math">\(w\)</span> are three nodes in <span class="math">\(V\)</span>. Suppose that <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the same connected component, but <span class="math">\(u\)</span> and <span class="math">\(w\)</span> are not in the same connected component. True or False: it is possible that <span class="math">\(v\)</span> and <span class="math">\(w\)</span> are in the same connected component.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #124</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(G\)</span> be an undirected graph. Suppose that the degree of every node in the graph is greater than or equal to one. True or False: <span class="math">\(G\)</span> must be connected.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #125</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>out-degree</b> of node <span class="math">\(u\)</span> in the graph shown below?</p>
+<center><div class="image"><img src="../images/125/g1.png" /></div></center>
+<details>
+    <summary>Solution</summary>
+<p>4</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #142</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(u\)</span> is a node in a complete, undirected graph <span class="math">\(G = (V,E)\)</span>. What is the degree of <span class="math">\(u\)</span>? Remember, an undirected graph is <i>complete</i> if it contains every possible edge.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(|V|\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(|E|\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(|V| - 1\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(|E| - 1\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(|V|^2\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(|V| - 1\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #143</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(V = \{a, b, c, d\}\)</span> and <span class="math">\(E = \{(a,b), (a,a), (a,c), (d,b), (c,a)\}\)</span> be the nodes and edges of a directed graph. How many predecessors does node <span class="math">\(b\)</span> have?</p>
+<details>
+    <summary>Solution</summary>
+<p>2</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #144</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a>, <a href='../tags/connected components.html'>connected components</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(C\)</span> be a connected component in an undirected graph <span class="math">\(G\)</span>. Suppose <span class="math">\(u_1\)</span> is a node in <span class="math">\(C\)</span> and let <span class="math">\(u_2\)</span> be a node that is reachable from <span class="math">\(u_1\)</span>. True or False: <span class="math">\(u_2\)</span> must also be in the same connected component, <span class="math">\(C\)</span>.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #146</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(G = (V, E)\)</span> be a connected, undirected graph with 16 nodes and 35 edges. What is the greatest possible number of edges that can be in a simple path within <span class="math">\(G\)</span>?</p>
+<details>
+    <summary>Solution</summary>
+<p>15</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #147</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a>, <a href='../tags/connected components.html'>connected components</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(G = (V, E)\)</span> is an undirected graph. Let <span class="math">\(k\)</span> be the number of connected components in <span class="math">\(G\)</span>. True or False: it is possible that <span class="math">\(k > |E|\)</span>.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #148</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(G = (V, E)\)</span> be a <i>directed</i> graph, and suppose <span class="math">\(u, v, w \in V\)</span> are all nodes. True or False: if <span class="math">\(w\)</span> is reachable from <span class="math">\(v\)</span>, and <span class="math">\(v\)</span> is reachable from <span class="math">\(u\)</span>, then <span class="math">\(w\)</span> is reachable from <span class="math">\(u\)</span>.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #149</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(G = (V,E)\)</span> be a connected, undirected graph with <span class="math">\(|E| = |V| - 1\)</span>. Suppose <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are both nodes in <span class="math">\(G\)</span>. True or False: there can be more than one simple path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span>.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #150</h2>
+        <p>Tags: <a href='../tags/graph theory.html'>graph theory</a>, <a href='../tags/connected components.html'>connected components</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose an undirected graph <span class="math">\(G = (V,E)\)</span> has two connected components, <span class="math">\(C_1\)</span> and <span class="math">\(C_2\)</span>. Suppose that <span class="math">\(|C_1| = 4\)</span> and <span class="math">\(|C_2| = 3\)</span>. What is the largest that <span class="math">\(|E|\)</span> can possibly be?</p>
+<details>
+    <summary>Solution</summary>
+<p>Answer: 9. To load a graph with the most edges, make each connected component "fully connected". The most edges we can put in a component with 4 nodes is <span class="math">\(4 * 3 / 2 = 6\)</span>, and the most we can put into a component with 3 nodes is <span class="math">\(3 * 2 / 2 = 3\)</span>. Therefore, we can put at most 9 edges in this graph.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+    </body>
+</html>

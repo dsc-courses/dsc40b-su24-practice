@@ -1,0 +1,222 @@
+<html>
+    <head>
+        <title>DSC 40B Practice Problems</title>
+        <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+        <link rel="stylesheet" href="../style.css">
+
+        <!-- MathJax -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            tex: {
+              inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+              displayMath: [             // start/end delimiter pairs for display math
+                  ['\\[', '\\]']
+              ],
+              processEscapes: true
+            }
+          });
+        </script>
+
+        <!-- highlightjs -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+        <script>hljs.highlightAll();</script>
+
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+
+    </head>
+    <body data-color-scheme="light">
+        <div style="margin: .5em 0em; font-size: 2em;">
+            <a href="..">DSC 40B Practice Problems</a>
+        </div>
+
+        
+<h1>Problems tagged with "hashing"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #095</h2>
+        <p>Tags: <a href='../tags/hashing.html'>hashing</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a hash table is constructed so that collisions are resolved through chaining. The hash table has <span class="math">\(10\)</span> bins, and 100 items are inserted into the hash table.</p>
+<p>True or False: it is possible for one of the bins to contain all 100 items.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #096</h2>
+        <p>Tags: <a href='../tags/hashing.html'>hashing</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a hash table in constructed so that collisions are resolved through chaining. The hash table has a number of bins <span class="math">\(k\)</span> that is <span class="math">\(\Theta(n)\)</span>, where <span class="math">\(n\)</span> is the number of elements being stored in the hash table; that is, the hash table grows as more elements are inserted.</p>
+<p>Suppose the hash function uses only the first <span class="math">\(k / 2\)</span> bins of the hash table, but appears to hash items into these bins evenly.</p>
+<p>What is the expected time complexity of a membership query on this hash table? State your answer in asymptotic notation in terms of the number of elements in the hash table, <span class="math">\(n\)</span>.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(1)\)</span> Since only <span class="math">\(k/2\)</span> bins are being used, the expected number of elements within each bin is <span class="math">\(n / (k/2) = 2n / k\)</span>. But since <span class="math">\(k = \Theta(n)\)</span>, this is just <span class="math">\(\Theta(1)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #097</h2>
+        <p>Tags: <a href='../tags/hashing.html'>hashing</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the code below:</p>
+<pre class="code"><code>
+def intersection(A, B):
+    common = set()
+    for x in A:
+        if x in B:
+            common.add(x)
+    return common
+
+</code></pre>
+
+<p>What is the expected time complexity of this code if <span class="inline-code"><code>A</code></span> and <span class="inline-code"><code>B</code></span> are Python <span class="inline-code"><code>set</code></span>s (hash tables) with <span class="math">\(n\)</span> elements each? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation. You may assume that the hash function used is ``good'' in that it hashes evenly (that is, it satisfies the simple universal hashing assumption).</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #120</h2>
+        <p>Tags: <a href='../tags/hashing.html'>hashing</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the expected time complexity of the code shown below, assuming that <span class="inline-code"><code>numbers</code></span> is a Python <span class="inline-code"><code>list</code></span>? Express your answer as a function of <span class="math">\(n\)</span> using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
+<pre class="code"><code>
+def foo(numbers):
+    """Assume that `numbers` is a list containing n numbers."""
+    # counts is a Python dictionary, which is implemented using hash table
+    counts = {}
+    for x in numbers:
+        for y in numbers:
+            diff = abs(x - y)
+            if diff not in counts:
+                counts[diff] = 1
+            else:
+                counts[diff] = counts[diff] + 1
+    return counts
+
+foo([1, 2, 3, 4])
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #121</h2>
+        <p>Tags: <a href='../tags/hashing.html'>hashing</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a hash table with <span class="math">\(n/2\)</span> bins stores <span class="math">\(n\)</span> elements, and suppose that when the next element is inserted into the hash table, a ``grow'' will be triggered. That is, the insertion will cause the hash table to resize to <span class="math">\(n\)</span> bins containing the same <span class="math">\(n + 1\)</span> elements, plus the newly-added element.</p>
+<p>What will be the time complexity of this single insertion operation that causes the table to grow?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #140</h2>
+        <p>Tags: <a href='../tags/hashing.html'>hashing</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(T\)</span> is a hash table of size 100 (that is, it has 100 bins). 300 elements are inserted into the hash table using a hash function that satisfies the uniform hashing assumption (that is, any element is equally-likely to hash into any bin). What is the expected number of elements in the first bin?</p>
+<details>
+    <summary>Solution</summary>
+<p>3</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #141</h2>
+        <p>Tags: <a href='../tags/hashing.html'>hashing</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a hash table is constructed using linked lists to store the data within each bin, and that collisions are resolved by chaining. What is the <i>worst case</i> time complexity of inserting a new element into the hash table? You may assume that the hash table will not need to be resized, and that evaluating the hash function takes <span class="math">\(\Theta(1)\)</span> time.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(1)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(1)\)</span>. Inserting an item into a hash table takes two steps: first, we hash the item to find its bin -- this takes <span class="math">\(\Theta(1)\)</span> time. Next, we actually insert the item into that bin. When we use chaining, we do this by appending the item to the linked list containing that bins elements. Appending to a linked list takes <span class="math">\(\Theta(1)\)</span> time, and so overall this takes <span class="math">\(\Theta(1)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+    </body>
+</html>

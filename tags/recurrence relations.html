@@ -1,0 +1,368 @@
+<html>
+    <head>
+        <title>DSC 40B Practice Problems</title>
+        <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+        <link rel="stylesheet" href="../style.css">
+
+        <!-- MathJax -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            tex: {
+              inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+              displayMath: [             // start/end delimiter pairs for display math
+                  ['\\[', '\\]']
+              ],
+              processEscapes: true
+            }
+          });
+        </script>
+
+        <!-- highlightjs -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+        <script>hljs.highlightAll();</script>
+
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+
+    </head>
+    <body data-color-scheme="light">
+        <div style="margin: .5em 0em; font-size: 2em;">
+            <a href="..">DSC 40B Practice Problems</a>
+        </div>
+
+        
+<h1>Problems tagged with "recurrence relations"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #011</h2>
+        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>State (but do not solve) the recurrence describing the run time of the following code, assuming that the input, <span class="inline-code"><code>arr</code></span>, is a list of size <span class="math">\(n\)</span>.</p>
+<pre class="code"><code>
+def foo(arr, stop=None):
+    if stop is None:
+        stop = len(arr) - 1
+
+    if stop < 0:
+        return 1
+
+    last = arr[stop]
+    return last * foo(arr, stop - 1)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(T(n) = T(n-1) + \Theta(1)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #012</h2>
+        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the solution of the below recurrence? State your answer using asymptotic notation as a function of <span class="math">\(n\)</span>.</p>
+<div class="math">\[
+        T(n) = 
+        \begin{cases}
+            5 T(n/5) + \Theta(n),& n > 1\\
+            1,& n = 1
+        \end{cases}\]</div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n \log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #028</h2>
+        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>State (but do not solve) the recurrence describing the runtime of the following function.</p>
+<pre class="code"><code>
+def foo(n):
+    if n < 10:
+        print("Hello world.")
+        return
+
+    for i in range(n):
+        print(i)
+
+    for i in range(6):
+        foo(n//3)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(T(n) = 6 T(n/3) + \Theta(n)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #044</h2>
+        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Solve the below recurrence, stating the solution in asymptotic notation. Show your work.</p>
+<div class="math">\[
+        T(n) =
+        \begin{cases}
+            2 T(n/4) + \Theta(n) & n > 1 \\
+            c & n = 1
+        \end{cases}\]</div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p>We'll unroll several times:</p>
+<div class="math">\[\begin{aligned}
+            T(n)
+            &=
+                2 T(n/4) + n
+                \\
+            &=
+                4 T(n/16) + \frac{n}{2} + n
+                \\
+            &=
+            8 T(n/64) + \frac{n}{4} + \frac{n}{2} + n
+                \\
+        \end{aligned}\]</div>
+<p>The pattern seems to be that on the <span class="math">\(k\)</span>th unroll:</p>
+<div class="math">\[
+            T(n) = 2^k T\left(\frac{n}{4^k}\right)+
+                n \left(                    1 + \frac12 + \frac14 + \ldots + \frac{1}{2^{k-1}}\right)\]</div>
+<p>The base case is reached when <span class="math">\(k = \log_4 n\)</span>. Plugging this back in, we find:</p>
+<div class="math">\[
+            T(n) = 2^{\log_4 n} T(1) + n \left(1 + \frac12 + \frac 14 + \ldots + \frac{1}{2^{\log_4 n - 1}}\right)\]</div>
+<p>If you reached this point, you got most of the credit. If you're unsure of what to do with <span class="math">\(2^{\log_4 n}\)</span>, there are a couple of ways foward.</p>
+<p>The first (and easiest) way is to realize that <span class="math">\(2^{\log_4 n}\)</span> is smaller than <span class="math">\(2^{\log_2 n} = n\)</span>, so <span class="math">\(2^{\log_4 n} = O(n)\)</span>. Similarly, we've seen the summation of <span class="math">\(1 + 1/2 + 1/4 + \ldots\)</span> several times -- this is a <i>geometric</i> sum, and converges to 2 when there are infinitely many terms. There are a finite number of terms here, so the sum is <span class="math">\(< 2\)</span>. Altogether, we have:</p>
+<div class="math">\[
+            T(n) = O(n) T(1) + n \Theta(1) = \Theta(n)
+        \]</div>
+<p>The second approach is to remember log properties to simplify <span class="math">\(2^{\log_4 n}\)</span> to <span class="math">\(\sqrt{n}\)</span>. This can be seen by using the ``change of base'' formula:</p>
+<div class="math">\[\log_b x = \frac{\log_a x}{\log_a b}.
+        \]</div>
+<p>In this case:</p>
+<div class="math">\[\log_4 n = \frac{\log_2 n}{\log_2 4} = \frac{\log_2 n}{2}\]</div>
+<p>And therefore <span class="math">\(2^{\log_4 n} = 2^{(\log_2 n) / 2} = \left(2^{\log_2
+        n}\right)^{1/2} = n^{1/2} = \sqrt n\)</span>. This shows that the first term in the recurrence is <span class="math">\(\Theta(\sqrt n)\)</span>. The second term is still <span class="math">\(\Theta(n)\)</span>, so the solution is <span class="math">\(\Theta(n)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #056</h2>
+        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>State (but do not solve) the recurrence describing the runtime of the following function.</p>
+<pre class="code"><code>
+def foo(n):
+    if n < 1:
+        return 0
+
+    for i in range(n**2):
+        print("here")
+
+    foo(n/2)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(
+        T(n) = \begin{cases}
+            \Theta(1), & n = 1\\
+            T(n/2) + \Theta(n^2)%
+            , & n > 1
+        \end{cases}\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #068</h2>
+        <p>Tags: <a href='../tags/mergesort.html'>mergesort</a>, <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the modification of <span class="inline-code"><code>mergesort</code></span> shown below, where one of the recursive calls has been replaced by an in-place version of <span class="inline-code"><code>selection_sort</code></span>. Recall that <span class="inline-code"><code>selection_sort</code></span> takes <span class="math">\(\Theta(n^2)\)</span> time.</p>
+<pre class="code"><code>
+def kinda_mergesort(arr):
+    """Sort array in-place."""
+    if len(arr) > 1:
+        middle = math.floor(len(arr) / 2)
+        left = arr[:middle]
+        right = arr[middle:]
+        mergesort(left)
+        selection_sort(right)
+        merge(left, right, arr)
+
+</code></pre>
+
+<p>What is the time complexity of <span class="inline-code"><code>kinda_mergesort</code></span>?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #071</h2>
+        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Solve the below recurrence, stating the solution in asymptotic notation. Show your work.</p>
+<div class="math">\[
+        T(n) =
+        \begin{cases}
+            T(n/2) + \Theta(n) & n > 1 \\
+            \Theta(1) & n = 1
+        \end{cases}\]</div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p>Unrolling several times, we find:</p>
+<div class="math">\[
+            T(n)
+            =
+                T(n/2) + n
+                \\
+            =
+                T(n/4) + \frac{n}{2} + n
+                \\
+            =
+                T(n/8) + \frac{n}{4} + \frac{n}{2} + n
+                \\\]</div>
+<p>On the <span class="math">\(k\)</span>th unroll, we'll get:</p>
+<div class="math">\[
+            T(n) = T(n/2^k) + \left[                n + \frac{n}{2} + \frac{n}{4} + \ldots + \frac{n}{2^{k-1}}\right]\]</div>
+<p>It will take <span class="math">\(\log_2 n\)</span> unrolls to each the base case. Substituting this for <span class="math">\(k\)</span>, we get:</p>
+<div class="math">\[\begin{aligned}
+            T(n)
+            &= T(n/2^{\log_2 n}) + \left[                n + \frac{n}{2} + \frac{n}{4} + \ldots + \frac{n}{2^{(\log_2 n)-1}}
+            \right]            \\
+            &= T(1) + n\left[                1 + \frac{1}{2} + \frac{1}{4} + \ldots + \frac{1}{2^{(\log_2 n)-1}}
+            \right]            & = T(1) + c n\\
+            & = \Theta(1) + c n\\
+            &= \Theta(n)
+        \end{aligned}\]</div>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #082</h2>
+        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Solve the recurrence below, stating the solution in asymptotic notation. Show your work.</p>
+<div class="math">\[
+        T(n) =
+        \begin{cases}
+            2 T(n/4) + \Theta(n),& n > 1\\
+            1,& n = 1
+        \end{cases}\]</div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #085</h2>
+        <p>Tags: <a href='../tags/recurrence relations.html'>recurrence relations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>State (but do not solve) the recurrence describing the run time of the following code, assuming that the input, <span class="inline-code"><code>arr</code></span>, is a list of size <span class="math">\(n\)</span>.</p>
+<pre class="code"><code>
+def foo(arr, stop=None):
+    if stop is None:
+        stop = len(arr) - 1
+
+    if stop < 0:
+        return 1
+
+    last = arr[stop]
+    return last * foo(arr, stop - 1)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(T(n) = T(n-1) + \Theta(1)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+    </body>
+</html>

@@ -1,0 +1,389 @@
+<html>
+    <head>
+        <title>DSC 40B Practice Problems</title>
+        <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+        <link rel="stylesheet" href="../style.css">
+
+        <!-- MathJax -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            tex: {
+              inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+              displayMath: [             // start/end delimiter pairs for display math
+                  ['\\[', '\\]']
+              ],
+              processEscapes: true
+            }
+          });
+        </script>
+
+        <!-- highlightjs -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+        <script>hljs.highlightAll();</script>
+
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+
+    </head>
+    <body data-color-scheme="light">
+        <div style="margin: .5em 0em; font-size: 2em;">
+            <a href="..">DSC 40B Practice Problems</a>
+        </div>
+
+        
+<h1>Problems tagged with "breadth first search"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #105</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider running a breadth-first search (BFS) on the graph shown below, using node <span class="math">\(s\)</span> as the source and adopting the convention that neighbors are produced in ascending order by label.</p>
+<center><div class="image"><img src="../images/105/graph.png" /></div></center>
+<p>How many nodes will be popped from the queue before node <span class="math">\(u_8\)</span> is popped?</p>
+<details>
+    <summary>Solution</summary>
+<p>9</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #106</h2>
+        <p>Tags: <a href='../tags/shortest paths.html'>shortest paths</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose that a breadth-first search on an undirected graph <span class="math">\(G\)</span> is paused and the queue is printed. Suppose that every node in the queue is either distance 5 from the source, or distance 6. At this moment, node <span class="math">\(u\)</span> is undiscovered.</p>
+<p>True or False: it is possible that node <span class="math">\(u\)</span> is distance 4 from the source.</p>
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #107</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a breadth-first search (BFS) is performed in order to calculate a dictionary of shortest path distances, <span class="inline-code"><code>dist</code></span>, from a source node <span class="math">\(s\)</span> to all nodes reachable from <span class="math">\(s\)</span> in an undirected graph <span class="math">\(G = (V, E)\)</span>.</p>
+<p>Suppose node <span class="math">\(u\)</span> is a node in <span class="math">\(G\)</span>, and <span class="math">\(v_1\)</span> and <span class="math">\(v_2\)</span> are two neighbors of node <span class="math">\(u\)</span>. Assume that <span class="math">\(u\)</span> is reachable from <span class="math">\(s\)</span>.</p>
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 1)</h3>
+<p>What is the <i>largest</i> that <span class="math">\(|\)</span><span class="inline-code"><code>dist[v_2] - dist[v_1]</code></span><span class="math">\(|\)</span> can be?</p>
+<details>
+    <summary>Solution</summary>
+<p>2</p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 2)</h3>
+<p>What is the <i>smallest</i> that <span class="math">\(|\)</span><span class="inline-code"><code>dist[v_2] - dist[v_1]</code></span><span class="math">\(|\)</span> can be?</p>
+<details>
+    <summary>Solution</summary>
+<p>0</p>
+</details>
+
+</div>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #108</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Define a <i>circle graph</i> with <span class="math">\(n\)</span> nodes to be an undirected graph <span class="math">\(G =
+    (V, E)\)</span> with nodes <span class="math">\(u_1, u_2, \ldots, u_n\)</span> and edges <span class="math">\((u_1, u_2), (u_2,
+    u_3), \ldots, (u_{n-1}, u_n)\)</span>, along with one additional edge <span class="math">\((u_n, u_1)\)</span> completing the cycle. An example of a circle graph with 6 nodes is shown below:</p>
+<center><div class="image"><img src="../images/108/graph.png" /></div></center>
+<p>What is the time complexity of breath-first search when run on a circle graph with <span class="math">\(n\)</span> nodes? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #109</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a>, <a href='../tags/aggregate analysis.html'>aggregate analysis</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the code below, which is a modification of the code for <span class="inline-code"><code>bfs</code></span> given in lecture:</p>
+<pre class="code"><code>
+from collections import deque
+
+def modified_full_bfs(graph):
+    status = {node: 'undiscovered' for node in graph.nodes}
+    for node in graph.nodes:
+        if status[node] == 'undiscovered':
+            modified_bfs(graph, node, status)
+
+def modified_bfs(graph, source, status=None):
+    """Start a BFS at `source`."""
+    if status is None:
+        status = {node: 'undiscovered' for node in graph.nodes}
+
+    status[source] = 'pending'
+    pending = deque([source])
+
+    # while there are still pending nodes
+    while pending: 
+        u = pending.popleft()
+        for v in graph.neighbors(u):
+            # explore edge (u,v)
+            if status[v] == 'undiscovered':
+                status[v] = 'pending'
+                # append to right
+                pending.append(v)
+                for z in graph.nodes:   # <----- new line!
+                    print(z, status[z]) # <----- new line!
+
+        status[u] = 'visited'
+
+</code></pre>
+
+<p>Notice the two new lines; these lines print all node statuses any time that an undiscovered node has been found.</p>
+<p>What is the time complexity of this modified <span class="inline-code"><code>modified_full_bfs</code></span>? State your answer in asymptotic notation in terms of the number of nodes, <span class="math">\(|V|\)</span>, and the number of edges, <span class="math">\(|E|\)</span>. You may assume that the graph is represented using an adjacency list.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(V^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #110</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider calling <span class="inline-code"><code>full_bfs</code></span> on a <i>directed</i> graph, and recall that <span class="inline-code"><code>full_bfs</code></span> will make calls to <span class="inline-code"><code>bfs</code></span> until all nodes have been marked as visited.</p>
+<p>True or False: the number of calls made to <span class="inline-code"><code>bfs</code></span> depends on the order in which <span class="inline-code"><code>graph.nodes</code></span> produces the graph's nodes. That is, if nodes are produced in a different order, the number of calls to <span class="inline-code"><code>bfs</code></span> may be different.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #116</h2>
+        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(G = (V, E)\)</span> be an undirected tree.</p>
+<p>Suppose breadth-first search (BFS) and depth-first search (DFS) are each run on the graph using the same source node. True or False: for any node <span class="math">\(u\)</span> in the graph, the BFS predecessor of <span class="math">\(u\)</span> and the DFS predecessor of <span class="math">\(u\)</span> must be the same.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #127</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a BFS is run on the graph below using node 1 as the source node. Which node will be the BFS predecessor of node 8? You should use the convention that neighbors are produced in ascending order by label.</p>
+<center><div class="image"><img src="../images/127/fig/g2.png" /></div></center>
+<details>
+    <summary>Solution</summary>
+<p>5</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #128</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a ``2-chain'' graph with <span class="math">\(n\)</span> nodes is constructed by taking <span class="math">\(n\)</span> nodes labeled 1, 2, <span class="math">\(\ldots\)</span>, <span class="math">\(n\)</span>, and, for each node <span class="math">\(u\)</span>, making an edge to nodes <span class="math">\(u + 1\)</span> and <span class="math">\(u + 2\)</span>(if they are in the graph).</p>
+<p>For example, such a graph with <span class="math">\(n = 7\)</span> looks like:</p>
+<center><div class="image"><img src="../images/128/g3.png" /></div></center>
+<p>Suppose BFS is run on a 2-chain graph with <span class="math">\(n\)</span> nodes, using node 1 as the source. What is the time taken as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #136</h2>
+        <p>Tags: <a href='../tags/depth first search.html'>depth first search</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose both BFS and DFS are run on the same graph <span class="math">\(G = (V, E)\)</span> using the same source node. Assume that <span class="math">\(G\)</span> is a tree. Consider a particular node <span class="math">\(u\)</span> in the graph. True or False: the BFS predecessor found for <span class="math">\(u\)</span> and the DFS predecessor found for <span class="math">\(u\)</span> must be the same.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #151</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a <i>breadth</i> first search (BFS) is run on the graph shown below using node <span class="math">\(u_4\)</span> as the source and the convention that <span class="inline-code"><code>graph.neighbors</code></span> produces nodes in ascending order by label. What will be the predecessor of <span class="math">\(u_6\)</span> in the BFS?</p>
+<center><div class="image"><img src="../images/151/f1.png" /></div></center>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_1\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_2\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_3\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_4\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_5\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_6\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_7\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_8\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_9\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(u_2\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #153</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a <i>breadth</i> first search (BFS) is run on a graph <span class="math">\(G = (V, E)\)</span>, and that node <span class="math">\(u\)</span> is distance 5 from the source while node <span class="math">\(v\)</span> is distance 3 from the source. True or False: it is possible that at some point during the BFS, both <span class="math">\(u\)</span> and <span class="math">\(v\)</span> are in the pending queue at the same time.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #164</h2>
+        <p>Tags: <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose that every edge in the weighted graph <span class="math">\(G\)</span> has weight -5. True or False: breadth first search on this graph will compute a <i>longest</i> path from the source to every node in the graph (that is, a path with greatest possible total edge weight).</p>
+<p>You may assume that every node in the graph is reachable from the source.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>True</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>False</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>True</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+    </body>
+</html>

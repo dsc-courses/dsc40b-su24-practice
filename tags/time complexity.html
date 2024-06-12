@@ -1,0 +1,668 @@
+<html>
+    <head>
+        <title>DSC 40B Practice Problems</title>
+        <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+        <link rel="stylesheet" href="../style.css">
+
+        <!-- MathJax -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            tex: {
+              inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+              displayMath: [             // start/end delimiter pairs for display math
+                  ['\\[', '\\]']
+              ],
+              processEscapes: true
+            }
+          });
+        </script>
+
+        <!-- highlightjs -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+        <script>hljs.highlightAll();</script>
+
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+
+    </head>
+    <body data-color-scheme="light">
+        <div style="margin: .5em 0em; font-size: 2em;">
+            <a href="..">DSC 40B Practice Problems</a>
+        </div>
+
+        
+<h1>Problems tagged with "time complexity"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #001</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
+<pre class="code"><code>
+def foo(n):
+    i = 0
+    while i < n**2:
+        i = i + 2
+        j = 0
+        while j < n:
+            for k in range(n):
+                print(i + j + k)
+            j = j + 10
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^4)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #002</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<pre class="code"><code>
+def foo(n):
+    for i in range(n**2):
+
+        for j in range(i):
+            print(i+j)
+
+        for k in range(n):
+            print(i+k)
+
+        for x in range(n - i):
+            print(x)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^4)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #003</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<pre class="code"><code>
+from math import sqrt, log, ceil
+
+def foo(n):
+    for i in range(ceil(n**3 - 10*n + sqrt(n))):
+        for j in range(ceil(log(n**2))):
+            print(i, j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^3 \log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #004</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<pre class="code"><code>
+def foo(arr):
+    """`arr` is a list containing n numbers."""
+    for x in arr:
+        if x > max(arr) / 2:
+            print('large!')
+        elif x < min(arr) * 2:
+            print('small!')
+        else:
+            print('neither!')
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #021</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function?</p>
+<pre class="code"><code>
+import math
+
+def foo(n):
+    for i in range(math.floor(math.sqrt(n))):
+        for j in range(math.floor(5*n**2 - math.sqrt(n)/1_000_000 + 100)):
+            print(n * n)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2 \sqrt n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #022</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function?</p>
+<pre class="code"><code>
+def foo(arr):
+    """`arr` is an array with n elements."""
+    x = max(arr) * min(arr)
+    if sum(arr) > 10:
+        return x
+    else:
+        return 0
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #024</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function?</p>
+<pre class="code"><code>
+def foo(n):
+    i = 0
+    while i < n:
+        j = 0
+        while j < i:
+            print(i + j)
+            j += 1
+        i += 5
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #030</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
+<pre class="code"><code>
+
+def foo(n):
+    for i in range(n):
+        for j in range(n):
+            for k in range(n**2):
+                print(i + j + k)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^4)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #039</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
+<pre class="code"><code>
+
+def foo(n):
+    for i in range(n):
+        for j in range(n**2):
+            for k in range(n):
+                print(i + j + k)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^4)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #049</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Express the time complexity of the following code using asymptotic notation in as simplest terms possible.</p>
+<pre class="code"><code>
+def foo(n):
+    for i in range(200, n):
+        for j in range(i, 2*i + n**2):
+            print(i + j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^3)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #050</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Express the time complexity of the following code using asymptotic notation in as simplest terms possible.</p>
+<pre class="code"><code>
+import math
+
+def foo(arr):
+    """`arr` is an array with n elements."""
+    n = len(arr)
+    ix = 1
+    s = 0
+
+    while ix < n:
+        s = s + arr[ix]
+        ix = ix * 5 + 2
+
+    return s
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #052</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Express the time complexity of the following code using asymptotic notation in as simplest terms possible.</p>
+<pre class="code"><code>
+def foo(n):
+    for i in range(n):
+        for j in range(i):
+            for k in range(n):
+                print(i + j + k)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^3)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #066</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Express the time complexity of the following code using asymptotic notation in as simplest terms possible.</p>
+<pre class="code"><code>
+
+def foo(n):
+    for i in range(n**3):
+        for j in range(n):
+            print(i + j)
+        for j in range(n**2):
+            print(i + j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^5)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #072</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s time complexity is <span class="math">\(\Theta(n^3)\)</span>, while <span class="inline-code"><code>baz</code></span>'s time complexity is <span class="math">\(\Theta(n^2)\)</span>.</p>
+<p>Suppose <span class="inline-code"><code>foo</code></span> is defined as below:</p>
+<pre class="code"><code>
+
+def foo(n):
+    if n < 1_000:
+        bar(n)
+    else:
+        baz(n)
+
+</code></pre>
+
+<p>What is the asymptotic time complexity of <span class="inline-code"><code>foo</code></span>?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #076</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>The function below counts how many elements What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? Remember to state your answer in the simplest terms possible.</p>
+<pre class="code"><code>
+from math import sqrt, log, ceil
+
+def foo(n):
+    for i in range(ceil(n**3 - 10*n + sqrt(n))):
+        for j in range(ceil(log(n**2))):
+            print(i, j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^3 \log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #077</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<pre class="code"><code>
+def foo(arr):
+    """`arr` is a list containing n numbers."""
+    for x in arr:
+        n = len(arr)
+        if x > sum(arr) / n:
+            print('large!')
+        elif x < sum(arr) / n:
+            print('small!')
+        else:
+            print('neither!')
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #079</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<pre class="code"><code>
+import math
+
+def foo(n):
+    for i in range(math.floor(math.sqrt(n))):
+        for j in range(i):
+            print(i + j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #090</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
+<pre class="code"><code>
+def foo(n):
+    for i in range(n**3):
+        for j in range(n):
+            print(i + j)
+    for k in range(n):
+        for l in range(n**2):
+            print(k * l)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^4)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #092</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s asymptotic time complexity is <span class="math">\(\Theta(n^4)\)</span>, while <span class="inline-code"><code>baz</code></span>'s is <span class="math">\(\Theta(n)\)</span>.</p>
+<p>Suppose <span class="inline-code"><code>foo</code></span> is defined as below:</p>
+<pre class="code"><code>
+
+def foo(n):
+    if n < 1_000_000:
+        bar(n)
+    else:
+        baz(n)
+
+</code></pre>
+
+<p>What is the asymptotic time complexity of <span class="inline-code"><code>foo</code></span>?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span> If you were to plot the function <span class="math">\(T(n)\)</span> that gives the time taken by <span class="inline-code"><code>foo</code></span> as a function of <span class="math">\(n\)</span>, you'd see something like the below:</p>
+<center><div class="image"><img src="../images/092/plot.png" /></div></center>
+<p>This function starts off looking like <span class="math">\(n^4\)</span>, but at <span class="math">\(n = 1_000_000\)</span>, it "switches" to looking like <span class="math">\(n\)</span>.</p>
+<p>Since asymptotic time complexity is concerned with the behavior of the function as <span class="math">\(n\)</span> gets large, we can ignore the part where <span class="math">\(n\)</span> is "small" (in this case, less than <span class="math">\(1{,}000{,}000\)</span>). So, asymptotically, this function is <span class="math">\(\Theta(n)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #094</h2>
+        <p>Tags: <a href='../tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s time complexity is <span class="math">\(\Theta(n^2)\)</span>, while <span class="inline-code"><code>baz</code></span>'s time complexity is <span class="math">\(\Theta(n)\)</span>.</p>
+<p>Suppose <span class="inline-code"><code>foo</code></span> is defined as below:</p>
+<pre class="code"><code>
+
+def foo(n):
+    # will be True if n is even, False otherwise
+    is_even = (n % 2) == 0
+    if is_even:
+        bar(n)
+    else:
+        baz(n)
+
+</code></pre>
+
+<p>Let <span class="math">\(T(n)\)</span> be the time taken by <span class="inline-code"><code>foo</code></span> on an input of sized <span class="math">\(n\)</span>. True or False: <span class="math">\(T(n) = \Theta(n^2)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+<p>This function is not <span class="math">\(\Theta(n^2)\)</span>. For that matter, it is also not <span class="math">\(\Theta(n)\)</span>. It <i>is</i><span class="math">\(O(n^2)\)</span> and <span class="math">\(\Omega(n)\)</span>, though.</p>
+<p>This function cannot be <span class="math">\(\Theta(n^2)\)</span> because there are no positive constants <span class="math">\(c, n_0\)</span> such that <span class="math">\(T(n) > c n^2\)</span> for all <span class="math">\(n > n_0\)</span>. You can see this by imagining the plot of the time taken by <span class="inline-code"><code>foo</code></span> as a function of <span class="math">\(n\)</span>. It "oscillates" between something that grows like <span class="math">\(n\)</span> and something that grows like <span class="math">\(n^2\)</span>. If you tried to lower bound it with <span class="math">\(cn^2\)</span>, <span class="math">\(T(n)\)</span> would eventually dip below <span class="math">\(cn^2\)</span>, since <span class="math">\(cn^2\)</span> grows faster than <span class="math">\(n\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+    </body>
+</html>

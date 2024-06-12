@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>DSC 40B Practice Problems</title>
+        <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+        <link rel="stylesheet" href="../style.css">
+
+        <!-- MathJax -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            tex: {
+              inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+              displayMath: [             // start/end delimiter pairs for display math
+                  ['\\[', '\\]']
+              ],
+              processEscapes: true
+            }
+          });
+        </script>
+
+        <!-- highlightjs -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+        <script>hljs.highlightAll();</script>
+
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+
+    </head>
+    <body data-color-scheme="light">
+        <div style="margin: .5em 0em; font-size: 2em;">
+            <a href="..">DSC 40B Practice Problems</a>
+        </div>
+
+        
+<h1>Problems tagged with "shortest paths"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #103</h2>
+        <p>Tags: <a href='../tags/shortest paths.html'>shortest paths</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(G\)</span> be an undirected graph, and let <span class="math">\(u, v,\)</span> and <span class="math">\(z\)</span> be three nodes in the graph. Consider the problem of finding a shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> which passes through node <span class="math">\(z\)</span>.</p>
+<p>True or False: a shortest path from <span class="math">\(u\)</span> to <span class="math">\(v\)</span> passing through <span class="math">\(z\)</span> may include node <span class="math">\(u\)</span> twice.</p>
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+<p>Consider the "chain" graph A - B - C - D - E. The shortest path from C to E that passes through B is C - B - C - D - E. It passes through C twice.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #106</h2>
+        <p>Tags: <a href='../tags/shortest paths.html'>shortest paths</a>, <a href='../tags/breadth first search.html'>breadth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose that a breadth-first search on an undirected graph <span class="math">\(G\)</span> is paused and the queue is printed. Suppose that every node in the queue is either distance 5 from the source, or distance 6. At this moment, node <span class="math">\(u\)</span> is undiscovered.</p>
+<p>True or False: it is possible that node <span class="math">\(u\)</span> is distance 4 from the source.</p>
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+    </body>
+</html>

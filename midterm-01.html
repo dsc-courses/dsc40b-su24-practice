@@ -1,0 +1,2993 @@
+<html>
+    <head>
+        <title>DSC 40B Practice Problems</title>
+        <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+        <link rel="stylesheet" href="./style.css">
+
+        <!-- MathJax -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            tex: {
+              inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+              displayMath: [             // start/end delimiter pairs for display math
+                  ['\\[', '\\]']
+              ],
+              processEscapes: true
+            }
+          });
+        </script>
+
+        <!-- highlightjs -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+        <script>hljs.highlightAll();</script>
+
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+
+    </head>
+    <body data-color-scheme="light">
+        <div style="margin: .5em 0em; font-size: 2em;">
+            <a href=".">DSC 40B Practice Problems</a>
+        </div>
+
+        
+        <h1>Midterm 01</h1>
+        <p>Practice problems for topics on Midterm 01.
+See also the <a href="http://dsc40b.com/materials/default/supplementary/sample_midterm_01/sample_midterm_01.pdf">Sample Midterm 01</a>
+and its <a href="http://dsc40b.com/materials/default/supplementary/sample_midterm_01/sample_midterm_01-solution.pdf">solutions</a>.</p>
+        <p>Tags in this problem set:</p>
+        <ul>
+        <ul>
+<li><a href='./tags/asymptotic notation.html'>asymptotic notation</a></li>
+<li><a href='./tags/best and worst case.html'>best and worst case</a></li>
+<li><a href='./tags/binary search.html'>binary search</a></li>
+<li><a href='./tags/binary search trees.html'>binary search trees</a></li>
+<li><a href='./tags/expected time.html'>expected time</a></li>
+<li><a href='./tags/loop invariants.html'>loop invariants</a></li>
+<li><a href='./tags/mergesort.html'>mergesort</a></li>
+<li><a href='./tags/quickselect.html'>quickselect</a></li>
+<li><a href='./tags/recurrence relations.html'>recurrence relations</a></li>
+<li><a href='./tags/recursion.html'>recursion</a></li>
+<li><a href='./tags/sorted structure.html'>sorted structure</a></li>
+<li><a href='./tags/theoretical lower bounds.html'>theoretical lower bounds</a></li>
+<li><a href='./tags/time complexity.html'>time complexity</a></li>
+<li><a href='./tags/verifying recursion.html'>verifying recursion</a></li>
+</ul>
+        </ul>
+
+        
+
+        <div class="problem-outer">
+        <h2>Problem #001</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
+<pre class="code"><code>
+def foo(n):
+    i = 0
+    while i < n**2:
+        i = i + 2
+        j = 0
+        while j < n:
+            for k in range(n):
+                print(i + j + k)
+            j = j + 10
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^4)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #002</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<pre class="code"><code>
+def foo(n):
+    for i in range(n**2):
+
+        for j in range(i):
+            print(i+j)
+
+        for k in range(n):
+            print(i+k)
+
+        for x in range(n - i):
+            print(x)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^4)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #003</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<pre class="code"><code>
+from math import sqrt, log, ceil
+
+def foo(n):
+    for i in range(ceil(n**3 - 10*n + sqrt(n))):
+        for j in range(ceil(log(n**2))):
+            print(i, j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^3 \log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #004</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<pre class="code"><code>
+def foo(arr):
+    """`arr` is a list containing n numbers."""
+    for x in arr:
+        if x > max(arr) / 2:
+            print('large!')
+        elif x < min(arr) * 2:
+            print('small!')
+        else:
+            print('neither!')
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #005</h2>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>best case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<pre class="code"><code>
+def foo(arr):
+    """`arr` is a list containing n numbers."""
+    previous = None
+    n = len(arr)
+    for x in arr:
+        if x == previous:
+            for i in range(n**2):
+                print('Equal!')
+            return
+        previous = x
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #006</h2>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>worst case</b> time complexity of the function in the previous problem?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #007</h2>
+        <p>Tags: <a href='./tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose you are given a (possibly unsorted) array containing <span class="math">\(n\)</span> elements. Each element is either zero or one. You are tasked with determining if the majority (at least half) of the array's elements are one.</p>
+<p>What is the <b>tight</b> theoretical lower bound for the worst case time complexity of this problem?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #008</h2>
+        <p>Tags: <a href='./tags/theoretical lower bounds.html'>theoretical lower bounds</a>, <a href='./tags/sorted structure.html'>sorted structure</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the same problem as above, except now you may assume that the array is <b>sorted</b>. What is the <b>tight</b> theoretical lower bound for the worst case time complexity of any algorithm which solves this problem?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(1)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #009</h2>
+        <p>Tags: <a href='./tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>expected</b> time complexity of the function below?</p>
+<pre class="code"><code>
+import random
+
+def foo(n):
+    # draw a random number uniformly from 0, 1, 2, ..., 99
+    # in constant time
+    x = random.randrange(100)
+    for i in range(x):
+        for j in range(n):
+            print("Here!")
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #010</h2>
+        <p>Tags: <a href='./tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>expected</b> time complexity of the function below?</p>
+<pre class="code"><code>
+import random
+
+def foo(n):
+    # draw a number uniformly at random from 0, 1, 2, ..., n-1
+    # in constant time
+    x = random.randrange(n)
+    if x < 100:
+        for j in range(n**2):
+            print(j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #011</h2>
+        <p>Tags: <a href='./tags/recurrence relations.html'>recurrence relations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>State (but do not solve) the recurrence describing the run time of the following code, assuming that the input, <span class="inline-code"><code>arr</code></span>, is a list of size <span class="math">\(n\)</span>.</p>
+<pre class="code"><code>
+def foo(arr, stop=None):
+    if stop is None:
+        stop = len(arr) - 1
+
+    if stop < 0:
+        return 1
+
+    last = arr[stop]
+    return last * foo(arr, stop - 1)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(T(n) = T(n-1) + \Theta(1)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #012</h2>
+        <p>Tags: <a href='./tags/recurrence relations.html'>recurrence relations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the solution of the below recurrence? State your answer using asymptotic notation as a function of <span class="math">\(n\)</span>.</p>
+<div class="math">\[
+        T(n) = 
+        \begin{cases}
+            5 T(n/5) + \Theta(n),& n > 1\\
+            1,& n = 1
+        \end{cases}\]</div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n \log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #013</h2>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(f(n) = \displaystyle\frac{n^3 - 2n^2 + 100}{n + 10}\)</span> True or False: <span class="math">\(f(n) = O(n^4)\)</span></p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #014</h2>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(f(n) = \Omega(n^3)\)</span> and <span class="math">\(g(n) = \Omega(n)\)</span>.</p>
+<p>True or False: it is necessarily the case that <span class="math">\(f/g = \Omega(n^2)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #015</h2>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(f(n) = n \cdot(\sin{n} + 1 )\)</span>. A plot of this function is shown below.</p>
+<center><div class="image"><img src="images/015/plot.png" /></div></center>
+<p>True or False: <span class="math">\(f(n) = \Theta(n)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+<p>Remember that for <span class="math">\(f(n)\)</span> to be <span class="math">\(\Theta(n)\)</span>, it has to be both upper- and lower-bounded by some <i>positive</i> constant times <span class="math">\(n\)</span>. This function is upper bounded by <span class="math">\(O(n)\)</span>, but it doesn't have a lower bound of <span class="math">\(\Omega(n)\)</span>. Therefore, it can't be <span class="math">\(\Theta(n)\)</span>.</p>
+<p>In other words, there is no positive constant <span class="math">\(c\)</span> and no positive number <span class="math">\(N\)</span> such that <span class="math">\(f(n) > c n\)</span> for all <span class="math">\(n > N\)</span>.</p>
+<p>If you had to describe this function in asymptotic notation, you could say that <span class="math">\(f(n) = O(n)\)</span>(and that would be a tight upper bound), but there is no lower bound, since the function keeps coming back down to zero.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #016</h2>
+        <p>Tags: <a href='./tags/binary search.html'>binary search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the code below, which shows <span class="inline-code"><code>binary_search</code></span> as discussed in lecture, but with one additional line: a print statement.</p>
+<pre class="code"><code>
+import math
+def binary_search(arr, t, start, stop):
+    if stop - start <= 0:
+        return None
+    middle = math.floor((start + stop)/2)
+    print(arr[middle]) # <---- this line is new
+    if arr[middle] == t:
+        return middle
+    elif arr[middle] > t:
+        return binary_search(arr, t, start, middle)
+    else:
+        return binary_search(arr, t, middle+1, stop)
+
+</code></pre>
+
+<p>Suppose this version of binary search is called on an array and with a target of <span class="inline-code"><code>t = 7</code></span>. Which of the following statements is true?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>All of the printed values must be less than or equal to 7.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>All of the printed values must be greater than or equal to 7.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Some of the printed values may be less than or equal to 7, and some may be greater than or equal to 7.</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>Some of the printed values may be less than or equal to 7, and some may be greater than or equal to 7.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #017</h2>
+        <p>Tags: <a href='./tags/verifying recursion.html'>verifying recursion</a>, <a href='./tags/binary search.html'>binary search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math">\(\geq x\)</span>). The full code is shown below for convenience:</p>
+<pre class="code"><code>
+import math
+
+def new_binary_search(arr, start, stop, target):
+    if stop <= start:
+        return None
+
+    middle = math.ceil((start + stop) / 2)
+
+    if arr[middle] == target:
+        return middle
+    elif arr[middle] < target:
+        return new_binary_search(arr, middle + 1, stop, target)
+    else:
+        return new_binary_search(arr, start, middle, target)
+
+</code></pre>
+
+<p>Which of the following statements about the correctness of <span class="inline-code"><code>new_binary_search</code></span> is true? You may assume that <span class="inline-code"><code>arr</code></span> will be a list containing at least one number, and that the initial call to <span class="inline-code"><code>new_binary_search</code></span> will be with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop
+    = len(arr) - 1</code></span>.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>new_binary_search</code></span> is guaranteed to work correctly (it will find the index of the target, if the target is in the array, and return <span class="inline-code"><code>None</code></span> otherwise).</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>new_binary_search</code></span> may recurse infinitely</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>new_binary_search</code></span> may raise an <span class="inline-code"><code>IndexError</code></span> because it may attempt to access an element of the array which does not exist</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>new_binary_search</code></span> is guaranteed to return without raising an exception, but it may sometimes return the wrong answer</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="inline-code"><code>new_binary_search</code></span> may recurse infinitely</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #018</h2>
+        <p>Tags: <a href='./tags/mergesort.html'>mergesort</a>, <a href='./tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>True or False: the <b>best case</b> time complexity of mergesort is <span class="math">\(\Theta(n)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #019</h2>
+        <p>Tags: <a href='./tags/mergesort.html'>mergesort</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>mergesort</code></span> is called on an array of size <span class="math">\(n\)</span>. In total, how many calls to <span class="inline-code"><code>merge</code></span> are made over all calls to <span class="inline-code"><code>mergesort</code></span>?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #020</h2>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Define the <b>largest gap</b> in a collection of numbers (also known as its <b>range</b>) to be greatest difference between two elements in the collection (in absolute value). For example, the largest gap in <span class="math">\(\{4, 9, 5, 1, 6\}\)</span> is 8 (between 1 and 9).</p>
+<p>Suppose a collection of <span class="math">\(n\)</span> numbers is stored in a <b>balanced</b> binary search tree. What is the time complexity required of an efficient algorithm to calculate the largest gap in the collection? State your answer as a function of <span class="math">\(n\)</span> in asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #021</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function?</p>
+<pre class="code"><code>
+import math
+
+def foo(n):
+    for i in range(math.floor(math.sqrt(n))):
+        for j in range(math.floor(5*n**2 - math.sqrt(n)/1_000_000 + 100)):
+            print(n * n)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2 \sqrt n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #022</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function?</p>
+<pre class="code"><code>
+def foo(arr):
+    """`arr` is an array with n elements."""
+    x = max(arr) * min(arr)
+    if sum(arr) > 10:
+        return x
+    else:
+        return 0
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #023</h2>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>The below code takes in an array of numbers and returns the index of the first maximum. What is this code's <b>best case</b> time complexity?</p>
+<pre class="code"><code>
+def index_of_maximum(arr):
+    """`arr` is an array with n elements."""
+    for i, x in enumerate(arr):
+        if x == max(arr):
+            return i
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #024</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function?</p>
+<pre class="code"><code>
+def foo(n):
+    i = 0
+    while i < n:
+        j = 0
+        while j < i:
+            print(i + j)
+            j += 1
+        i += 5
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #025</h2>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(f\)</span> be the piecewise function defined as:</p>
+<div class="math">\[
+        f(n) = \begin{cases}
+            1, & \text{if $n$ is a multiple of 1 million},\\
+            n^2, &\text{otherwise}.
+        \end{cases}\]</div>
+<p>If you were to plot <span class="math">\(f\)</span>, the function would look like <span class="math">\(n^2\)</span>, but would have point discontinuities where it ``jumps'' back to 1 whenever <span class="math">\(n\)</span> is a multiple of 1 million.</p>
+<p>True or False: <span class="math">\(f(n) = \Theta(n^2)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+<p><span class="math">\(f(n)\)</span><i>is</i> upper bounded by <span class="math">\(O(n^2)\)</span>, but it doesn't have a lower bound of <span class="math">\(\Omega(n^2)\)</span>, which is necessary for it to be <span class="math">\(\Theta(n^2)\)</span>.</p>
+<p>To see why, remember that for <span class="math">\(f(n)\)</span> to be <span class="math">\(\Omega(n^2)\)</span>, there must be a positive constant <span class="math">\(c\)</span> so that <span class="math">\(f(n)\)</span> stays above <span class="math">\(c\cdot n^2\)</span> for all <span class="math">\(n\)</span> greater than some <span class="math">\(n_0\)</span>, meaning that it goes above <span class="math">\(c n^2\)</span><i>and it stays above $c n^2$</i> forever, after some point.</p>
+<p>Pick whatever positive <span class="math">\(c\)</span> you'd like -- the function <span class="math">\(c\cdot n^2\)</span> grows larger and larger as <span class="math">\(n\)</span> increases, and eventually becomes larger than 1. But the function <span class="math">\(f(n)\)</span> keeps dipping down to 1, meaning that it doesn't stay above <span class="math">\(c\cdot n^2\)</span> for all <span class="math">\(n\)</span> when <span class="math">\(n\)</span> is large. Therefore, <span class="math">\(f(n)\)</span> is not <span class="math">\(\Omega(n^2)\)</span>, and therefore also not <span class="math">\(\Theta(n^2)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #026</h2>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(f(n)\)</span> is both <span class="math">\(O(n^2)\)</span> and <span class="math">\(\Omega(n)\)</span>, and suppose <span class="math">\(g(n) = \Theta(n^3)\)</span>. What are the tightest possible asymptotic bounds that can be placed on <span class="math">\(f + g\)</span>?</p>
+<p>If the upper and lower bounds are the same, you may use <span class="math">\(\Theta\)</span>. If the upper and lower bounds are different, you should state them separately using <span class="math">\(O\)</span> and <span class="math">\(\Omega\)</span>.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^3)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #027</h2>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose the numbers <span class="inline-code"><code>41</code></span>, <span class="inline-code"><code>32</code></span>, and <span class="inline-code"><code>40</code></span> are inserted (in that order) into the below binary search tree. Draw where the new nodes will appear.</p>
+<center><div class="image"><img src="images/027/bst.png" /></div></center>
+<details>
+    <summary>Solution</summary>
+<p>41 will be the right child of 33.</p>
+<p>32 will be the right child of 31.</p>
+<p>40 will be the left child of 41.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #028</h2>
+        <p>Tags: <a href='./tags/recurrence relations.html'>recurrence relations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>State (but do not solve) the recurrence describing the runtime of the following function.</p>
+<pre class="code"><code>
+def foo(n):
+    if n < 10:
+        print("Hello world.")
+        return
+
+    for i in range(n):
+        print(i)
+
+    for i in range(6):
+        foo(n//3)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(T(n) = 6 T(n/3) + \Theta(n)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #029</h2>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the function <span class="math">\(f(n) = \frac{n^8 + 2^{3 + \log n} - \sqrt n}{20 n^5 - n^2}\)</span>.</p>
+<p>True or False: <span class="math">\(f(n) = O(n^{4})\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #030</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
+<pre class="code"><code>
+
+def foo(n):
+    for i in range(n):
+        for j in range(n):
+            for k in range(n**2):
+                print(i + j + k)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^4)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #031</h2>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(f_1(n) = O(g_1(n))\)</span> and <span class="math">\(f_2(n) = \Omega(g_2(n))\)</span>. True or False: it is necessarily the case that <span class="math">\(f_1 + f_2 = O(g_1(n))\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #032</h2>
+        <p>Tags: <a href='./tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>expected</b> time complexity of the following function?</p>
+<pre class="code"><code>
+import random
+
+def foo(n):
+    for i in range(n):
+        # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
+        x = random.randrange(n)
+        for j in range(x):
+            print(j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #033</h2>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(f\)</span> and <span class="math">\(g\)</span> be as in the previous question. What are the tightest possible asymptotic bounds that can be placed on the product, <span class="math">\(f \times g\)</span>?</p>
+<p>As before, if the upper and lower bounds are the same, you may use <span class="math">\(\Theta\)</span>; otherwise you should use <span class="math">\(O\)</span> and <span class="math">\(\Omega\)</span>.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(O(n^5)\)</span> and <span class="math">\(\Omega(n^4)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #034</h2>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Define the <b>smallest gap</b> in a collection of numbers to be the smallest difference between two distinct elements in the collection (in absolute value). For example, the smallest gap in <span class="math">\(\{4, 9, 1, 6\}\)</span> is 2 (between 4 and 6).</p>
+<p>Suppose a collection of <span class="math">\(n\)</span> numbers is stored in a <b>balanced</b> binary search tree. What is the time complexity required for an efficient algorithm to calculate the smallest gap of the numbers in the BST? State your answer as a function of <span class="math">\(n\)</span> in asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #035</h2>
+        <p>Tags: <a href='./tags/binary search.html'>binary search</a>, <a href='./tags/recursion.html'>recursion</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>binary_search</code></span> has been called on an array <span class="inline-code"><code>arr</code></span> with a target <span class="inline-code"><code>t</code></span> that is not necessarily in the array, and with start and stop indices <span class="inline-code"><code>start</code></span> and <span class="inline-code"><code>stop</code></span>, respectively (remember, our convention is that the start index is included, while the stop index is excluded from the search). Which of the following must be true? <b>Mark all which apply</b>. You may assume that <span class="inline-code"><code>stop - start</code></span><span class="math">\(\geq 1\)</span>.</p>
+<p>Note: remember that any statement about an empty array is considered to be automatically true. Also, you cannot assume that this call to <span class="inline-code"><code>binary_search</code></span> is the <i>root</i> call (it could be a recursive call).</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[start] < t < arr[stop]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[start] < t < arr[stop - 1]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[:start] < t</code></span>. That is, everything up to but excluding <span class="inline-code"><code>arr[start]</code></span> is less than the target.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>arr[stop:] > t</code></span>. That is, everything after <span class="inline-code"><code>stop</code></span>, including the element at <span class="inline-code"><code>stop</code></span>, is greater than the target.</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>The last two answers are both correct.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #036</h2>
+        <p>Tags: <a href='./tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose you are given a (possibly unsorted) array of <span class="math">\(n\)</span> floating point numbers and are tasked with counting the number of elements in the array which are within ten of the array's maximum (you are not told the maximum). That is, you must count the number of elements <span class="math">\(x\)</span> such that <span class="math">\(m - x \geq 10\)</span>, where <span class="math">\(m\)</span> is the array's maximum. You may assume that the array does not contain duplicate numbers.</p>
+<p>What is the <b>tight</b> theoretical lower bound for the worst case time complexity of this problem?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p>It takes <span class="math">\(\Theta(n)\)</span> time to find the maximum. After this, we loop through and keep track of how many elements are within ten of the maximum -- this also takes <span class="math">\(\Theta(n)\)</span> time.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #037</h2>
+        <p>Tags: <a href='./tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>expected</b> time complexity of the function below?</p>
+<pre class="code"><code>
+import random
+
+def foo(n):
+    # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
+    x = random.randrange(n)
+    if x < math.sqrt(n):
+        for j in range(n):
+            print(j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\sqrt n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #038</h2>
+        <p>Tags: <a href='./tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose you are given a (possibly unsorted) array of <span class="math">\(n\)</span> floating point numbers and are tasked with counting the number of elements in the array which are within ten of the array's maximum (you are not told the maximum). That is, you must count the number of elements <span class="math">\(x\)</span> such that <span class="math">\(m - x \geq 10\)</span>, where <span class="math">\(m\)</span> is the array's maximum. You may assume that the array does not contain duplicate numbers.</p>
+<p>Now you may assume that the array is <b>sorted</b>.</p>
+<p>This question has two parts:</p>
+<p>First, give the tight theoretical lower bound for the worst case time complexity of any algorithm which solves this problem:</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log n)\)</span></p>
+</details>
+
+<p>Second, give a short description of an optimal algorithm. Your description does not need to be exact or very long (3 to 4 sentences will do). You do not <i>need</i> to provide pseudocode, but you can if you wish.</p>
+<details>
+    <summary>Solution</summary>
+<p>The maximum <span class="math">\(m\)</span> can be found in <span class="math">\(\Theta(1)\)</span> time -- it is the last element of the array. Use binary search (<span class="math">\(\Theta(\log n)\)</span> time) to look for <span class="math">\(m - 10\)</span>, but modify the code so that the last-checked index is returned if <span class="math">\(m -
+        10\)</span> is not found (everything to the right of that index is at least <span class="math">\(m - 10\)</span>). Subtract this index from <span class="math">\(n\)</span> to find the number of elements within 10 of the maximum.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #039</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
+<pre class="code"><code>
+
+def foo(n):
+    for i in range(n):
+        for j in range(n**2):
+            for k in range(n):
+                print(i + j + k)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^4)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #040</h2>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>The below code takes in an array of numbers and returns the index of the first maximum.</p>
+<pre class="code"><code>
+def foo(arr):
+    """`arr` is an array with n elements."""
+    for i, x in enumerate(arr):
+        if x == max(arr):
+            return i
+
+</code></pre>
+
+<p>What is the <b>worst case</b> time complexity of the function?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #041</h2>
+        <p>Tags: <a href='./tags/binary search.html'>binary search</a>, <a href='./tags/recursion.html'>recursion</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>binary_search</code></span> is called on a sorted array of size <span class="math">\(n\)</span>. In total, how many recursive calls to <span class="inline-code"><code>binary_search</code></span> are made in the worst case?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #042</h2>
+        <p>Tags: <a href='./tags/verifying recursion.html'>verifying recursion</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the code below which claims to compute the maximum of the input array. Adopt the convention that the maximum of an empty array is <span class="math">\(-\infty\)</span>.</p>
+<pre class="code"><code>
+import math
+def maximum(arr, start=0, stop=None):
+    """Find the maximum of arr[start:stop]."""
+    if stop is None:
+        stop = len(arr)
+    if stop - start == 0:
+        return -float('inf')
+
+    middle = math.floor((start + stop) / 2)
+    left = maximum(arr, start, middle)
+    right = maximum(arr, middle, stop)
+    if left > right:
+        return left
+    else:
+        return right
+
+</code></pre>
+
+<p>Will this code always return the correct answer (the maximum)? If yes, simply say so. If no, describe what might happen (recurse infinitely, return the wrong answer, raise an index error, etc.).</p>
+<details>
+    <summary>Solution</summary>
+<p>This code will recurse infinitely when called on an array with a single element.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #043</h2>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the function <span class="math">\(f(n) = \frac{n^8 + 2^{3 + \log n} - \sqrt n}{20 n^5 - n^2}\)</span>.</p>
+<p>True or False: <span class="math">\(f(n) = \Omega(n^2)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #044</h2>
+        <p>Tags: <a href='./tags/recurrence relations.html'>recurrence relations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Solve the below recurrence, stating the solution in asymptotic notation. Show your work.</p>
+<div class="math">\[
+        T(n) =
+        \begin{cases}
+            2 T(n/4) + \Theta(n) & n > 1 \\
+            c & n = 1
+        \end{cases}\]</div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p>We'll unroll several times:</p>
+<div class="math">\[\begin{aligned}
+            T(n)
+            &=
+                2 T(n/4) + n
+                \\
+            &=
+                4 T(n/16) + \frac{n}{2} + n
+                \\
+            &=
+            8 T(n/64) + \frac{n}{4} + \frac{n}{2} + n
+                \\
+        \end{aligned}\]</div>
+<p>The pattern seems to be that on the <span class="math">\(k\)</span>th unroll:</p>
+<div class="math">\[
+            T(n) = 2^k T\left(\frac{n}{4^k}\right)+
+                n \left(                    1 + \frac12 + \frac14 + \ldots + \frac{1}{2^{k-1}}\right)\]</div>
+<p>The base case is reached when <span class="math">\(k = \log_4 n\)</span>. Plugging this back in, we find:</p>
+<div class="math">\[
+            T(n) = 2^{\log_4 n} T(1) + n \left(1 + \frac12 + \frac 14 + \ldots + \frac{1}{2^{\log_4 n - 1}}\right)\]</div>
+<p>If you reached this point, you got most of the credit. If you're unsure of what to do with <span class="math">\(2^{\log_4 n}\)</span>, there are a couple of ways foward.</p>
+<p>The first (and easiest) way is to realize that <span class="math">\(2^{\log_4 n}\)</span> is smaller than <span class="math">\(2^{\log_2 n} = n\)</span>, so <span class="math">\(2^{\log_4 n} = O(n)\)</span>. Similarly, we've seen the summation of <span class="math">\(1 + 1/2 + 1/4 + \ldots\)</span> several times -- this is a <i>geometric</i> sum, and converges to 2 when there are infinitely many terms. There are a finite number of terms here, so the sum is <span class="math">\(< 2\)</span>. Altogether, we have:</p>
+<div class="math">\[
+            T(n) = O(n) T(1) + n \Theta(1) = \Theta(n)
+        \]</div>
+<p>The second approach is to remember log properties to simplify <span class="math">\(2^{\log_4 n}\)</span> to <span class="math">\(\sqrt{n}\)</span>. This can be seen by using the ``change of base'' formula:</p>
+<div class="math">\[\log_b x = \frac{\log_a x}{\log_a b}.
+        \]</div>
+<p>In this case:</p>
+<div class="math">\[\log_4 n = \frac{\log_2 n}{\log_2 4} = \frac{\log_2 n}{2}\]</div>
+<p>And therefore <span class="math">\(2^{\log_4 n} = 2^{(\log_2 n) / 2} = \left(2^{\log_2
+        n}\right)^{1/2} = n^{1/2} = \sqrt n\)</span>. This shows that the first term in the recurrence is <span class="math">\(\Theta(\sqrt n)\)</span>. The second term is still <span class="math">\(\Theta(n)\)</span>, so the solution is <span class="math">\(\Theta(n)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #045</h2>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose Algorithm A takes <span class="math">\(\Theta(n^2)\)</span> time, while Algorithm B takes <span class="math">\(\Theta(2^n)\)</span> time. True or False: there <b>could</b> exist an input on which Algorithm <span class="math">\(B\)</span> takes less time than Algorithm A.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #046</h2>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let</p>
+<div class="math">\[
+        f(n) = 
+        \frac{n^3 - 2n + 100}{\sqrt n}\cdot\frac{n}{n^3 + n^2 + \sin n}\cdot n^2
+    \]</div>
+<p>True or False: <span class="math">\(f(n) = \Theta(n^2)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #047</h2>
+        <p>Tags: <a href='./tags/binary search.html'>binary search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the problem of searching for an element <span class="inline-code"><code>t</code></span> in a <i>sorted</i> array, with the added requirement that if <span class="inline-code"><code>t</code></span> is in the array multiple times, we return the index of the <i>first</i> occurrence. For example, if <span class="inline-code"><code>arr = [3, 4, 4, 4, 5, 8]</code></span>, and <span class="inline-code"><code>t = 4</code></span>, the code should return <span class="inline-code"><code>1</code></span>, since the first <span class="inline-code"><code>4</code></span> is at index one.</p>
+<p><span class="inline-code"><code>binary_search</code></span> as implemented in lecture may not necessarily return the index of the first occurrence of <span class="inline-code"><code>t</code></span>, but it can be modified so that it does.</p>
+<p>Fill in the blanks below so that the function returns the index of the first occurence of <span class="inline-code"><code>t</code></span>. Hint: <span class="inline-code"><code>last_seen</code></span> should keep track of the index of the last known occurrence of <span class="inline-code"><code>t</code></span>.</p>
+<pre class="code"><code>
+
+import math
+def mbs(arr, t, start, stop, last_seen=None):
+    if start - stop <= 0:
+        return last_seen
+
+    middle = math.floor((stop - start) / 2)
+
+    if arr[middle] == t:
+        # _________ <-- fill this in
+    elif arr[middle] < t:
+        # _________ <-- fill this in
+    else:
+        # _________ <-- fill this in
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p>Here is how the blanks should be filled in:</p>
+<pre class="code"><code>
+
+if arr[middle] == t:
+    return mbs(arr, t, start, middle, middle)
+elif arr[middle] < t:
+    return mbs(arr, t, middle + 1, stop, last_seen)
+else:
+    return mbs(arr, t, start, middle, last_seen)
+
+</code></pre>
+
+<p>If we see <span class="inline-code"><code>arr[middle] == t</code></span>, we know that this is either the first occurrence of <span class="inline-code"><code>t</code></span> in the array, or the first occurrence of <span class="inline-code"><code>t</code></span> in the left half of the array. Therefore, we make a recursive call to <span class="inline-code"><code>mbs</code></span> on the left half of the array, keeping track of <span class="inline-code"><code>middle</code></span> as the index of the leftmost occurrence of <span class="inline-code"><code>t</code></span> we have seen so far (this is done by passing it as the value to <span class="inline-code"><code>last_seen</code></span>).</p>
+<p>The other recursive calls are the same as in the original <span class="inline-code"><code>binary_search</code></span> function, except that we pass <span class="inline-code"><code>last_seen</code></span> as an argument to the recursive calls. This is because we want to keep track of the leftmost occurrence of <span class="inline-code"><code>t</code></span> we have seen so far.</p>
+<p>Eventually, we will reach a point where <span class="inline-code"><code>start - stop <= 0</code></span>. At this point, we return <span class="inline-code"><code>last_seen</code></span>, which is the index of the leftmost occurrence of <span class="inline-code"><code>t</code></span> we have seen so far. This will necessarily be the leftmost occurrence of <span class="inline-code"><code>t</code></span> in the array.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #048</h2>
+        <p>Tags: <a href='./tags/quickselect.html'>quickselect</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>True or False: <span class="inline-code"><code>quickselect</code></span> requires the input array to be sorted in order to function correctly.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #049</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Express the time complexity of the following code using asymptotic notation in as simplest terms possible.</p>
+<pre class="code"><code>
+def foo(n):
+    for i in range(200, n):
+        for j in range(i, 2*i + n**2):
+            print(i + j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^3)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #050</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Express the time complexity of the following code using asymptotic notation in as simplest terms possible.</p>
+<pre class="code"><code>
+import math
+
+def foo(arr):
+    """`arr` is an array with n elements."""
+    n = len(arr)
+    ix = 1
+    s = 0
+
+    while ix < n:
+        s = s + arr[ix]
+        ix = ix * 5 + 2
+
+    return s
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #051</h2>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>The code below takes in an array of <span class="math">\(n\)</span> numbers and checks whether there is a pair of numbers in the array which, when added together, equal the maximum element of the array.</p>
+<p>What is the <b>best case</b> time complexity of this code as a function of <span class="math">\(n\)</span>? State your answer using asymptotic notation.</p>
+<pre class="code"><code>
+def exists_pair_summing_to_max(arr):
+    n = len(arr)
+    maximum = max(arr)
+    for i in range(n):
+        for j in range(i + 1, n):
+            if arr[i] + arr[j] == maximum:
+                return True
+    return False
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #052</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Express the time complexity of the following code using asymptotic notation in as simplest terms possible.</p>
+<pre class="code"><code>
+def foo(n):
+    for i in range(n):
+        for j in range(i):
+            for k in range(n):
+                print(i + j + k)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^3)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #053</h2>
+        <p>Tags: <a href='./tags/binary search.html'>binary search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the version of binary search shown below:</p>
+<pre class="code"><code>
+
+import math
+def binary_search(arr, t, start, stop):
+    """
+    Searches arr[start:stop] for t.
+    Assumes arr is sorted.
+    """
+    if stop - start <= 0:
+        return None
+    middle = math.floor((start + stop)/2)
+    if arr[middle] == t:
+        return middle
+    elif arr[middle] > t:
+        return binary_search(arr, t, start, middle)
+    else:
+        return binary_search(arr, t, middle+1, stop)
+
+</code></pre>
+
+<p>True or false: if the target element <span class="inline-code"><code>t</code></span> occurs multiple times in the array, <span class="inline-code"><code>binary_search</code></span> is guaranteed to return the first occurrence.</p>
+<p>You may assume that <span class="inline-code"><code>arr</code></span> is sorted and that <span class="inline-code"><code>binary_search(arr, t, 0, len(arr))</code></span> is called.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #054</h2>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the function <span class="math">\(f(n) = n \times(\sin(n) + 1)\)</span>. A plot of this function is shown below:</p>
+<center><div class="image"><img src="images/054/plot.png" /></div></center>
+<p>True or False: this function is <span class="math">\(O(1 + \sin n)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+<p><span class="math">\(f(n)\)</span> grows arbitrarily large, while <span class="math">\(\sin n + 1\)</span> is bounded above by 2.</p>
+<p>More formally, there is no constant <span class="math">\(c\)</span> such that <span class="math">\(c (1 + \sin n)\)</span> upper bounds <span class="math">\(f(n)\)</span> for all large <span class="math">\(n\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #055</h2>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose the numbers <span class="inline-code"><code>41</code></span>, <span class="inline-code"><code>32</code></span>, and <span class="inline-code"><code>33</code></span> are inserted (in that order) into the below binary search tree. Draw where the new nodes will appear.</p>
+<center><div class="image"><img src="images/055/bst.png" /></div></center>
+<details>
+    <summary>Solution</summary>
+<p>41 will become the left child of 46.</p>
+<p>32 will become the left child of 35.</p>
+<p>33 will become the right child of 32.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #056</h2>
+        <p>Tags: <a href='./tags/recurrence relations.html'>recurrence relations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>State (but do not solve) the recurrence describing the runtime of the following function.</p>
+<pre class="code"><code>
+def foo(n):
+    if n < 1:
+        return 0
+
+    for i in range(n**2):
+        print("here")
+
+    foo(n/2)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(
+        T(n) = \begin{cases}
+            \Theta(1), & n = 1\\
+            T(n/2) + \Theta(n^2)%
+            , & n > 1
+        \end{cases}\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #057</h2>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^2)\)</span> and <span class="math">\(\Omega(n)\)</span>. Also suppose that <span class="math">\(f_2(n) = \Theta(n^2)\)</span>.</p>
+<p>Consider the function <span class="math">\(g(n) = f_2(n) / f_1(n)\)</span>. True or false: it must be the case that <span class="math">\(g(n) = \Omega(n)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #058</h2>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(f_1(n) = \Omega(g_1(n))\)</span> and <span class="math">\(f_2 = \Omega(g_2(n))\)</span>. Define <span class="math">\(f(n) = \min\{ f_1(n), f_2(n) \}\)</span> and <span class="math">\(g(n) = \min\{ g_1(n), g_2(n)\}\)</span>.</p>
+<p>True or false: it is necessarily the case that <span class="math">\(f(n) = \Omega(g(n))\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #059</h2>
+        <p>Tags: <a href='./tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>expected</b> time complexity of the following function? State your answer using asymptotic notation.</p>
+<pre class="code"><code>
+import random
+
+def foo(n):
+    x = random.randrange(n)
+
+    if x < 8:
+        for j in range(n**3):
+            print(j)
+    else:
+        for j in range(n):
+            print(j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #060</h2>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider again the function <span class="math">\(f(n) = n \times( \sin(n) + 1)\)</span> from the previous problem.</p>
+<p>True or False: <span class="math">\(f(n) = O(n^3)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #061</h2>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Define the <b>largest gap</b> in a collection of numbers to be the largest difference between two distinct elements in the collection (in absolute value). For example, the largest gap in <span class="math">\(\{4, 9, 1, 6\}\)</span> is 8 (between 1 and 9).</p>
+<p>Suppose a collection of <span class="math">\(n\)</span> numbers is stored in a <b>balanced</b> binary search tree. What is the time complexity required for an efficient algorithm to calculate the largest gap of the numbers in the BST? State your answer as a function of <span class="math">\(n\)</span> in asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #062</h2>
+        <p>Tags: <a href='./tags/loop invariants.html'>loop invariants</a>, <a href='./tags/binary search.html'>binary search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the iterative implementation of binary search shown below:</p>
+<pre class="code"><code>
+import math
+
+def iterative_binary_search(arr, target):
+
+    start = 0
+    stop = len(arr)
+
+    while (stop - start) > 0:
+        print(arr[start])
+        middle = math.floor((start + stop) / 2)
+        if arr[middle] == target:
+            return middle
+        elif arr[middle] > target:
+            stop = middle
+        else:
+            start = middle + 1
+
+    return None
+
+</code></pre>
+
+<p>Which of the following loop invariants is true, assuming that <span class="inline-code"><code>arr</code></span> is sorted and non-empty, and <span class="inline-code"><code>target</code></span> is <b>not</b> in the array? Select all that apply.</p>
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, <span class="inline-code"><code>stop - start >= 0</code></span>.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, <span class="inline-code"><code>stop - start >= 1</code></span>.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p>After each iteration, <span class="inline-code"><code>arr[start] <= target</code></span>.</p></label></div></div>
+<details>
+    <summary>Solution</summary>
+<p>The first option is correct.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #063</h2>
+        <p>Tags: <a href='./tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider again the problem of determining whether there exists a pair of numbers in an array which, when added together, equal the maximum number in the array. Additionally, <b>assume that the array is sorted</b>.</p>
+<p>True or False: <span class="math">\(\Theta(n)\)</span> is a <b>tight</b> theoretical lower bound for this problem.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+<p>Any algorithm must take <span class="math">\(\Omega(n)\)</span> time in the worst case, since in the worst case all elements of the array must be read.</p>
+<p>This is tight because there is an algorithm that will compute the answer in worst-case <span class="math">\(\Theta(n)\)</span> time. Namely, this is an instance of the ``movie problem'' from lecture, where instead of finding two numbers which add to an arbitrary target, we're looking for a specific target: the maximum. We saw an algorithm that solved the movie problem in <span class="math">\(\Theta(n)\)</span> time, where <span class="math">\(n\)</span> was the number of movies. Since the maximum is computed in <span class="math">\(\Theta(1)\)</span> time for a sorted array, we can use the same algorithm to solve this in <span class="math">\(\Theta(n)\)</span> time as well.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #064</h2>
+        <p>Tags: <a href='./tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>expected</b> time complexity of the function below? State your answer using asymptotic notation.</p>
+<p>You may assume that <span class="inline-code"><code>math.sqrt</code></span> and <span class="inline-code"><code>math.log</code></span> take <span class="math">\(\Theta(1)\)</span> time. <span class="inline-code"><code>math.log</code></span> computes the natural log.</p>
+<pre class="code"><code>
+import random
+import math
+
+def foo(n):
+    # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
+    x = random.randrange(n)
+
+    if x < math.log(n):
+        for j in range(n**2):
+            print(j)
+    elif x < math.sqrt(n):
+        print('Ok!')
+    else:
+        for i in range(n):
+            print(i)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n \log n)\)</span> There are three cases: Case 1) <span class="math">\(x < \log n\)</span>; Case 2) <span class="math">\(\log n \geq x <
+        \sqrt n\)</span>; and Case 3) <span class="math">\(x \geq\sqrt{n}\)</span>.</p>
+<p>The probability of Case 1 is <span class="math">\(\log n / n\)</span>. The time taken in case 1 is <span class="math">\(\Theta(n^2)\)</span>.</p>
+<p>The probability of Case 2 is</p>
+<div class="math">\[\frac{\sqrt n}{n} - \frac{\log n}{n} = \Theta(\sqrt n / n) = \Theta(1/\sqrt n).
+        \]</div>
+<p>The time taken in this case is <span class="math">\(\Theta(1)\)</span>.</p>
+<p>The probability of Case 3 is 1 minus the probability of the sum of the other two cases, which will simply be <span class="math">\(\Theta(1)\)</span>:</p>
+<div class="math">\[
+            1 - \Theta((\log n) / n) - \Theta(1 / \sqrt{n}) = \Theta(1)
+        \]</div>
+<p>Therefore, the expected time is:</p>
+<div class="math">\[\begin{aligned}
+            \frac{\log n}{n} \times \Theta(n^2)
+            + \Theta(1/\sqrt n) \times \Theta(1)
+            + \Theta(1) \times \Theta(n)
+            &=
+            \Theta(n \log n) + \Theta(1 / \sqrt n) + \Theta(n)
+            \\
+            &=
+            \Theta(n \log n)
+            \end{aligned}\]</div>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #065</h2>
+        <p>Tags: <a href='./tags/theoretical lower bounds.html'>theoretical lower bounds</a>, <a href='./tags/sorted structure.html'>sorted structure</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are two numbers, with <span class="math">\(a \leq b\)</span>. Consider the problem of counting the number of elements in an array which are between <span class="math">\(a\)</span> and <span class="math">\(b\)</span>; that is, the number of elements <span class="math">\(x\)</span> such that <span class="math">\(a
+    \leq x \leq b\)</span>. You may assume for simplicity that both <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are in the array, and there are no duplicates.</p>
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 1)</h3>
+<p>What is a <b>tight</b> theoretical lower bound for this problem, assuming that the array is <b>unsorted</b>? State your answer in asymptotic notation as a function of the number of elements in the array, <span class="math">\(n\)</span>.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p>Since the array is in arbitrary order, we have to at least read all of the elements, taking <span class="math">\(\Omega(n)\)</span> time. This is a tight lower bound, because we can count the number of elements between <span class="math">\(a\)</span> and <span class="math">\(b\)</span> by looping through and checking whether each element is in <span class="math">\([a, b]\)</span> in linear time.</p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 2)</h3>
+<p>What is a <b>tight</b> theoretical lower bound for this problem, assuming that the array is <b>sorted</b>? State your answer in asymptotic notation as a function of the number of elements in the array, <span class="math">\(n\)</span>.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log n)\)</span>.</p>
+<p>We can do this in worst-case <span class="math">\(\Theta(\log n)\)</span> time with binary search: find the index of <span class="math">\(a\)</span> in worst-case <span class="math">\(\Theta(\log n)\)</span> time; find the index of <span class="math">\(b\)</span> in worst-case <span class="math">\(\Theta(\log n)\)</span> time; and subtract the two indices (and add one) to get the total number of elements between <span class="math">\(a\)</span> and <span class="math">\(b\)</span>, inclusive.</p>
+<p>There cannot be an algorithm that is better than <span class="math">\(\Theta(\log n)\)</span> in the worst case, so this is a tight lower bound. To see why, recognize that we can solve the query problem (determine True/False if a target <span class="math">\(t\)</span> is in a sorted array) with any algorithm that solves this problem by setting <span class="math">\(a = b = t\)</span>. If an algorithm solves this problem in faster than <span class="math">\(\Theta(\log n)\)</span>, it will also solve the query problem in faster than <span class="math">\(\Theta(\log n)\)</span>, but we saw in class that the query problem has a theoretical lower bound of <span class="math">\(\Theta(\log n)\)</span>, so such an algorithm cannot exist.</p>
+</details>
+
+</div>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #066</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Express the time complexity of the following code using asymptotic notation in as simplest terms possible.</p>
+<pre class="code"><code>
+
+def foo(n):
+    for i in range(n**3):
+        for j in range(n):
+            print(i + j)
+        for j in range(n**2):
+            print(i + j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^5)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #067</h2>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>worst case</b> time complexity of the function in the last problem? State your answer using asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #068</h2>
+        <p>Tags: <a href='./tags/mergesort.html'>mergesort</a>, <a href='./tags/recurrence relations.html'>recurrence relations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the modification of <span class="inline-code"><code>mergesort</code></span> shown below, where one of the recursive calls has been replaced by an in-place version of <span class="inline-code"><code>selection_sort</code></span>. Recall that <span class="inline-code"><code>selection_sort</code></span> takes <span class="math">\(\Theta(n^2)\)</span> time.</p>
+<pre class="code"><code>
+def kinda_mergesort(arr):
+    """Sort array in-place."""
+    if len(arr) > 1:
+        middle = math.floor(len(arr) / 2)
+        left = arr[:middle]
+        right = arr[middle:]
+        mergesort(left)
+        selection_sort(right)
+        merge(left, right, arr)
+
+</code></pre>
+
+<p>What is the time complexity of <span class="inline-code"><code>kinda_mergesort</code></span>?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #069</h2>
+        <p>Tags: <a href='./tags/verifying recursion.html'>verifying recursion</a>, <a href='./tags/recursion.html'>recursion</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the code below which claims to compute the most common element in the array, returning a pair: the element along with the number of times it appears.</p>
+<pre class="code"><code>
+import math
+
+def most_common(arr, start, stop):
+    """Attempts to compute the most common element in arr[start:stop]."""
+    if stop - start == 1:
+        return (arr[start], 1)
+
+    middle = math.floor((start + stop) / 2)
+
+    left_value, left_count = most_common(arr, start, middle)
+    right_value, right_count = most_common(arr, middle, stop)
+
+    if left_count > right_count:
+        return (left_value, left_count)
+    else:
+        return (right_value, right_count)
+
+</code></pre>
+
+<p>You may assume that the function is always called on a non-empty array, and with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>. Will this code always return the correct answer (the most common element)?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p>Yes: it will always return the correct answer.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may recurse infinitely.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it may try to access the array at an invalid index.</p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p>No: it will run without error, but the element returned may not be the most common element in the array.</p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p>No: it will run without error, but the element returned may not be the most common element in the array.</p>
+<p>It is not true in general that the most common element in the array is the most common in the left or the right. As a simple example, take: <span class="inline-code"><code>[1,1,1,0,0,2,2,2,0,0]</code></span>. 1 is the most common in the left half, and 2 is the most common in the right half, but 0 is the most common overall.</p>
+<p>So even if we assume that <span class="inline-code"><code>most_common(arr, start, middle)</code></span> finds the most common element in left half of the array, and <span class="inline-code"><code>most_common(arr, middle, stop)</code></span> finds the most common element in the right of the array, it is not necessarily the case that the most common between them is the overall most common in the array.</p>
+<p>You can also quickly see that the code cannot be correct because nowhere is a count greater than one ever returned.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #070</h2>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(f_1(n)\)</span> is <span class="math">\(O(n^2)\)</span> and <span class="math">\(\Omega(n)\)</span>. Also suppose that <span class="math">\(f_2(n) = \Theta(n^2)\)</span>.</p>
+<p>Consider the function <span class="math">\(f(n) = f_1(n) + f_2(n)\)</span>. True or false: it must be the case that <span class="math">\(f(n) = \Theta(n^2)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #071</h2>
+        <p>Tags: <a href='./tags/recurrence relations.html'>recurrence relations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Solve the below recurrence, stating the solution in asymptotic notation. Show your work.</p>
+<div class="math">\[
+        T(n) =
+        \begin{cases}
+            T(n/2) + \Theta(n) & n > 1 \\
+            \Theta(1) & n = 1
+        \end{cases}\]</div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span>.</p>
+<p>Unrolling several times, we find:</p>
+<div class="math">\[
+            T(n)
+            =
+                T(n/2) + n
+                \\
+            =
+                T(n/4) + \frac{n}{2} + n
+                \\
+            =
+                T(n/8) + \frac{n}{4} + \frac{n}{2} + n
+                \\\]</div>
+<p>On the <span class="math">\(k\)</span>th unroll, we'll get:</p>
+<div class="math">\[
+            T(n) = T(n/2^k) + \left[                n + \frac{n}{2} + \frac{n}{4} + \ldots + \frac{n}{2^{k-1}}\right]\]</div>
+<p>It will take <span class="math">\(\log_2 n\)</span> unrolls to each the base case. Substituting this for <span class="math">\(k\)</span>, we get:</p>
+<div class="math">\[\begin{aligned}
+            T(n)
+            &= T(n/2^{\log_2 n}) + \left[                n + \frac{n}{2} + \frac{n}{4} + \ldots + \frac{n}{2^{(\log_2 n)-1}}
+            \right]            \\
+            &= T(1) + n\left[                1 + \frac{1}{2} + \frac{1}{4} + \ldots + \frac{1}{2^{(\log_2 n)-1}}
+            \right]            & = T(1) + c n\\
+            & = \Theta(1) + c n\\
+            &= \Theta(n)
+        \end{aligned}\]</div>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #072</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s time complexity is <span class="math">\(\Theta(n^3)\)</span>, while <span class="inline-code"><code>baz</code></span>'s time complexity is <span class="math">\(\Theta(n^2)\)</span>.</p>
+<p>Suppose <span class="inline-code"><code>foo</code></span> is defined as below:</p>
+<pre class="code"><code>
+
+def foo(n):
+    if n < 1_000:
+        bar(n)
+    else:
+        baz(n)
+
+</code></pre>
+
+<p>What is the asymptotic time complexity of <span class="inline-code"><code>foo</code></span>?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #073</h2>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let</p>
+<div class="math">\[
+        f(n) = 5 n \log n +
+        \frac{n^3 + 5}{n + 2 + |\sin \pi n|}
+        +
+        n \sqrt n
+    \]</div>
+<p>Write <span class="math">\(f\)</span> in asymptotic notation in as simplest terms possible.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(f(n) = \Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #074</h2>
+        <p>Tags: <a href='./tags/loop invariants.html'>loop invariants</a>, <a href='./tags/binary search.html'>binary search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider <span class="inline-code"><code>iterative_binary_search</code></span> below and note the <span class="inline-code"><code>print</code></span> statement in the <span class="inline-code"><code>while</code></span>-loop:</p>
+<pre class="code"><code>
+
+import math
+
+def iterative_binary_search(arr, target):
+
+    start = 0
+    stop = len(arr)
+
+    while (stop - start) > 0:
+        print(arr[start])
+        middle = math.floor((start + stop) / 2)
+        if arr[middle] == target:
+            return middle
+        elif arr[middle] > target:
+            stop = middle
+        else:
+            start = middle + 1
+
+    return None
+
+</code></pre>
+
+<p>Suppose <span class="inline-code"><code>iterative_binary_search</code></span> is run on the array:</p>
+<pre class="code"><code>
+[-202, -201, -200, -50, -20, -10, -4, -3, 0, 1, 3, 5, 6, 7, 9, 10, 12, 15, 22]
+</code></pre>
+
+<p>with target <span class="inline-code"><code>11</code></span>.</p>
+<p>What will be the last value of <span class="inline-code"><code>arr[start]</code></span> printed?</p>
+<details>
+    <summary>Solution</summary>
+<p>10</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #075</h2>
+        <p>Tags: <a href='./tags/loop invariants.html'>loop invariants</a>, <a href='./tags/quickselect.html'>quickselect</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Recall the partition operation from <span class="inline-code"><code>quickselect</code></span>. Which of the following arrays could have been partitioned at least once? Select all that apply.</p>
+<div class="multiple-select"><div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[50, 10, 20, 30, 60, 40]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[20, 10, 30, 60, 40, 50]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[20, 50, 10, 40, 30, 60]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[60, 50, 40, 30, 20, 10]</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="checkbox" /><p><span class="inline-code"><code>[10, 20, 30, 40, 50, 60]</code></span></p></label></div></div>
+<details>
+    <summary>Solution</summary>
+<p>The second, third, and last all should be selected.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #076</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>The function below counts how many elements What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? Remember to state your answer in the simplest terms possible.</p>
+<pre class="code"><code>
+from math import sqrt, log, ceil
+
+def foo(n):
+    for i in range(ceil(n**3 - 10*n + sqrt(n))):
+        for j in range(ceil(log(n**2))):
+            print(i, j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^3 \log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #077</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<pre class="code"><code>
+def foo(arr):
+    """`arr` is a list containing n numbers."""
+    for x in arr:
+        n = len(arr)
+        if x > sum(arr) / n:
+            print('large!')
+        elif x < sum(arr) / n:
+            print('small!')
+        else:
+            print('neither!')
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #078</h2>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>best case</b> time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<pre class="code"><code>
+def foo(arr):
+    """`arr` is a list containing n numbers."""
+    previous = None
+    n = len(arr)
+    for x in arr:
+        if x == previous:
+            for i in range(n**2):
+                print('Equal!')
+            return
+        previous = x
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #079</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>?</p>
+<pre class="code"><code>
+import math
+
+def foo(n):
+    for i in range(math.floor(math.sqrt(n))):
+        for j in range(i):
+            print(i + j)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #080</h2>
+        <p>Tags: <a href='./tags/binary search trees.html'>binary search trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a collection of <span class="math">\(n\)</span> numbers is stored in a balanced binary search tree. What is the time complexity required of an efficient algorithm to calculate the mean of the collection? State your answer as a function of <span class="math">\(n\)</span> in asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #081</h2>
+        <p>Tags: <a href='./tags/mergesort.html'>mergesort</a>, <a href='./tags/recursion.html'>recursion</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the code for <span class="inline-code"><code>mergesort</code></span> and <span class="inline-code"><code>merge</code></span> where a new <span class="inline-code"><code>print</code></span>-statement has been added to <span class="inline-code"><code>merge</code></span>:</p>
+<pre class="code"><code>
+
+def mergesort(arr):
+    """Sort array in-place."""
+    if len(arr) > 1:
+        middle = math.floor(len(arr) / 2)
+        left = arr[:middle]
+        right = arr[middle:]
+        mergesort(left)
+        mergesort(right)
+        merge(left, right, arr)
+
+def merge(left, right, out):
+    """Merge sorted arrays, store in out."""
+    left.append(float('inf'))
+    right.append(float('inf'))
+    left_ix = 0
+    right_ix = 0
+
+    for ix in range(len(out)):
+        print("Here!") # <---- the newly-added line
+        if left[left_ix] < right[right_ix]:
+            out[ix] = left[left_ix]
+            left_ix += 1
+        else:
+            out[ix] = right[right_ix]
+            right_ix += 1
+
+</code></pre>
+
+<p>Suppose <span class="inline-code"><code>mergesort</code></span> is called on an array of size <span class="math">\(n\)</span>. In total, how many times will <span class="inline-code"><code>"Here!"</code></span> be printed?</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(\log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n \log n)\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(\Theta(n^2)\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n \log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #082</h2>
+        <p>Tags: <a href='./tags/recurrence relations.html'>recurrence relations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Solve the recurrence below, stating the solution in asymptotic notation. Show your work.</p>
+<div class="math">\[
+        T(n) =
+        \begin{cases}
+            2 T(n/4) + \Theta(n),& n > 1\\
+            1,& n = 1
+        \end{cases}\]</div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #083</h2>
+        <p>Tags: <a href='./tags/verifying recursion.html'>verifying recursion</a>, <a href='./tags/binary search.html'>binary search</a>, <a href='./tags/recursion.html'>recursion</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose we modify <span class="inline-code"><code>binary_search</code></span> so that instead of using the floor operation to find the middle element of the array, we use the ceiling operation (recall that the ceiling of a real number <span class="math">\(x\)</span> is the smallest integer that is <span class="math">\(\geq x\)</span>). The full code is shown below for convenience:</p>
+<pre class="code"><code>
+import math
+
+def new_binary_search(arr, start, stop, target):
+    if stop <= start:
+        return None
+
+    middle = math.ceil((start + stop) / 2)
+
+    if arr[middle] == target:
+        return middle
+    elif arr[middle] < target:
+        return new_binary_search(arr, middle + 1, stop, target)
+    else:
+        return new_binary_search(arr, start, middle, target)
+
+</code></pre>
+
+<p>You may assume that <span class="inline-code"><code>arr</code></span> will be a sorted list containing at least one number, and that the initial call to <span class="inline-code"><code>new_binary_search</code></span> will be with <span class="inline-code"><code>start = 0</code></span> and <span class="inline-code"><code>stop = len(arr)</code></span>.</p>
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 1)</h3>
+<p>True or False: there are input arrays on which <span class="inline-code"><code>new_binary_search</code></span> will recurse infinitely.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 2)</h3>
+<p>True or False: there are input arrays on which <span class="inline-code"><code>new_binary_search</code></span> will raise an <span class="inline-code"><code>IndexError</code></span> because it attempts to access an element of the array which does not exist.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+</div>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #084</h2>
+        <p>Tags: <a href='./tags/best and worst case.html'>best and worst case</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>True or False: the <b>best case</b> time complexity of mergesort is <span class="math">\(\Theta(n)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #085</h2>
+        <p>Tags: <a href='./tags/recurrence relations.html'>recurrence relations</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>State (but do not solve) the recurrence describing the run time of the following code, assuming that the input, <span class="inline-code"><code>arr</code></span>, is a list of size <span class="math">\(n\)</span>.</p>
+<pre class="code"><code>
+def foo(arr, stop=None):
+    if stop is None:
+        stop = len(arr) - 1
+
+    if stop < 0:
+        return 1
+
+    last = arr[stop]
+    return last * foo(arr, stop - 1)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(T(n) = T(n-1) + \Theta(1)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #086</h2>
+        <p>Tags: <a href='./tags/quickselect.html'>quickselect</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>True or False: in order to guarantee that its output is correct, <span class="inline-code"><code>quickselect</code></span> must be called on a sorted list.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #087</h2>
+        <p>Tags: <a href='./tags/theoretical lower bounds.html'>theoretical lower bounds</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Consider the following problem: given a (possibly unsorted) list of size <span class="math">\(n\)</span> containing only ones and zeros, determine if the number of ones is equal to the number of zeros.</p>
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 1)</h3>
+<p>What is a <b>tight</b> theoretical lower bound for this problem? State your answer as a function of <span class="math">\(n\)</span> using asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 2)</h3>
+<p>Now assume that the input array is guaranteed to have the following structure: there will be <span class="math">\(a\)</span> ones, followed by <span class="math">\(b\)</span> zeros, followed again by <span class="math">\(a\)</span> ones. An example of such an array is: <span class="inline-code"><code>[1, 1, 0, 0, 0, 1, 1]</code></span>. In this example, <span class="math">\(a = 2\)</span> and <span class="math">\(b = 3\)</span>.</p>
+<p>Consider the same problem as before: that is, given an array satisfying the above assumption, determine if the number of ones in the array is equal to the number of zeros. Of course, <span class="math">\(a\)</span> and <span class="math">\(b\)</span> are not known ahead of time.</p>
+<p>What is a <b>tight</b> theoretical lower bound for this problem?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(1)\)</span> Let <span class="math">\(n\)</span> be the length of the array. Assume that <span class="math">\(n\)</span> is even (if it is odd, we can immediately say that there are not an equal number of ones and zeros). In fact, we can assume that <span class="math">\(n\)</span> is divisible by four, since <span class="math">\(n = a + b + a = 2a + b\)</span>, which must equal <span class="math">\(4a\)</span> if there are an equal number of ones and zeros.</p>
+<p>For there to be an equal number of ones as zeros, the middle <span class="math">\(n/2\)</span> elements must be zero, while the first <span class="math">\(n/4\)</span> and last <span class="math">\(n/4\)</span> must be ones. If that is the case, then the last one in the first group of ones will occur at index <span class="math">\(n / 4 - 1\)</span>, and the first zero will occur at <span class="math">\(n / 4 \)</span> A constant-time algorithm is to check the element at index <span class="math">\(n/4
+                - 1\)</span> and verify that it is a one. Then we check the element at index <span class="math">\(n/4 \)</span> and check that it is a zero.</p>
+<p>Consider, for example, this array with <span class="math">\(n = 10\)</span>:</p>
+<div class="math">\[\mintinline{python}{[1, 1, 1, 0, 0, 0, 0, 1, 1, 1]}\]</div>
+<p>Then <span class="math">\(n / 10 = 10 / 4 = 2.5 = 2\)</span>. Therefore, we check the elements at index 1 and 2 in constant time and find them to both be one, which tells us that this array does not have an equal number of zeros and ones.</p>
+<p>Now consider the array below:</p>
+<div class="math">\[\mintinline{python}{[1, 1, 0, 0, 0, 0, 1, 1]}\]</div>
+<p>Since <span class="math">\(n = 8\)</span>, we again check the elements at index 1 and 2. We find 1 and 0, which tells us that the array <i>does</i> have an equal number of zeros and ones, as expected.</p>
+</details>
+
+</div>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #088</h2>
+        <p>Tags: <a href='./tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>expected</b> time complexity of the function below?</p>
+<p>You may assume that <span class="inline-code"><code>math.sqrt</code></span> takes <span class="math">\(\Theta(1)\)</span> time.</p>
+<pre class="code"><code>
+import random
+import math
+
+def foo(n):
+    # draw a number uniformly at random from 0, 1, 2, ..., n-1 in Theta(1)
+    x = random.randrange(n)
+
+    if x < math.sqrt(n):
+        for j in range(n):
+            print(j)
+    elif x < n//2:
+        print('Ok!')
+    else:
+        for i in range(n**2):
+            print(i)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #089</h2>
+        <p>Tags: <a href='./tags/expected time.html'>expected time</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the <b>expected</b> time complexity of the function below?</p>
+<pre class="code"><code>
+import random
+
+def foo(n):
+    # draw a random number uniformly from 0, 1, 2, ..., n-1
+    # in constant time
+    x = random.randrange(n)
+    for i in range(x):
+        for j in range(n):
+            print("Here!")
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^2)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #090</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>What is the time complexity of the following function in terms of <span class="math">\(n\)</span>? State your answer using asymptotic notation (e.g., <span class="math">\(\Theta(n)\)</span>).</p>
+<pre class="code"><code>
+def foo(n):
+    for i in range(n**3):
+        for j in range(n):
+            print(i + j)
+    for k in range(n):
+        for l in range(n**2):
+            print(k * l)
+
+</code></pre>
+
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n^4)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #091</h2>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(f_1(n) = O(g_1(n))\)</span> and <span class="math">\(f_2 = O(g_2(n))\)</span>. Define <span class="math">\(f(n) = \min\{ f_1(n), f_2(n) \}\)</span> and <span class="math">\(g(n) = \min\{ g_1(n), g_2(n) \}\)</span>. True or false, it is necessarily the case that <span class="math">\(f(n) = O(g(n))\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>True.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #092</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s asymptotic time complexity is <span class="math">\(\Theta(n^4)\)</span>, while <span class="inline-code"><code>baz</code></span>'s is <span class="math">\(\Theta(n)\)</span>.</p>
+<p>Suppose <span class="inline-code"><code>foo</code></span> is defined as below:</p>
+<pre class="code"><code>
+
+def foo(n):
+    if n < 1_000_000:
+        bar(n)
+    else:
+        baz(n)
+
+</code></pre>
+
+<p>What is the asymptotic time complexity of <span class="inline-code"><code>foo</code></span>?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span> If you were to plot the function <span class="math">\(T(n)\)</span> that gives the time taken by <span class="inline-code"><code>foo</code></span> as a function of <span class="math">\(n\)</span>, you'd see something like the below:</p>
+<center><div class="image"><img src="images/092/plot.png" /></div></center>
+<p>This function starts off looking like <span class="math">\(n^4\)</span>, but at <span class="math">\(n = 1_000_000\)</span>, it "switches" to looking like <span class="math">\(n\)</span>.</p>
+<p>Since asymptotic time complexity is concerned with the behavior of the function as <span class="math">\(n\)</span> gets large, we can ignore the part where <span class="math">\(n\)</span> is "small" (in this case, less than <span class="math">\(1{,}000{,}000\)</span>). So, asymptotically, this function is <span class="math">\(\Theta(n)\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #093</h2>
+        <p>Tags: <a href='./tags/asymptotic notation.html'>asymptotic notation</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(f(n) = \Omega(n^3)\)</span> and <span class="math">\(g(n) = \Omega(n)\)</span>.</p>
+<p>True or False: it is necessarily the case that <span class="math">\(f/g = \Omega(n^2)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #094</h2>
+        <p>Tags: <a href='./tags/time complexity.html'>time complexity</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="inline-code"><code>bar</code></span> and <span class="inline-code"><code>baz</code></span> are two functions. Suppose <span class="inline-code"><code>bar</code></span>'s time complexity is <span class="math">\(\Theta(n^2)\)</span>, while <span class="inline-code"><code>baz</code></span>'s time complexity is <span class="math">\(\Theta(n)\)</span>.</p>
+<p>Suppose <span class="inline-code"><code>foo</code></span> is defined as below:</p>
+<pre class="code"><code>
+
+def foo(n):
+    # will be True if n is even, False otherwise
+    is_even = (n % 2) == 0
+    if is_even:
+        bar(n)
+    else:
+        baz(n)
+
+</code></pre>
+
+<p>Let <span class="math">\(T(n)\)</span> be the time taken by <span class="inline-code"><code>foo</code></span> on an input of sized <span class="math">\(n\)</span>. True or False: <span class="math">\(T(n) = \Theta(n^2)\)</span>.</p>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+<p>This function is not <span class="math">\(\Theta(n^2)\)</span>. For that matter, it is also not <span class="math">\(\Theta(n)\)</span>. It <i>is</i><span class="math">\(O(n^2)\)</span> and <span class="math">\(\Omega(n)\)</span>, though.</p>
+<p>This function cannot be <span class="math">\(\Theta(n^2)\)</span> because there are no positive constants <span class="math">\(c, n_0\)</span> such that <span class="math">\(T(n) > c n^2\)</span> for all <span class="math">\(n > n_0\)</span>. You can see this by imagining the plot of the time taken by <span class="inline-code"><code>foo</code></span> as a function of <span class="math">\(n\)</span>. It "oscillates" between something that grows like <span class="math">\(n\)</span> and something that grows like <span class="math">\(n^2\)</span>. If you tried to lower bound it with <span class="math">\(cn^2\)</span>, <span class="math">\(T(n)\)</span> would eventually dip below <span class="math">\(cn^2\)</span>, since <span class="math">\(cn^2\)</span> grows faster than <span class="math">\(n\)</span>.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+    </body>
+</html>

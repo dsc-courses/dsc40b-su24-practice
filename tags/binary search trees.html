@@ -1,0 +1,168 @@
+<html>
+    <head>
+        <title>DSC 40B Practice Problems</title>
+        <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+        <link rel="stylesheet" href="../style.css">
+
+        <!-- MathJax -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            tex: {
+              inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+              displayMath: [             // start/end delimiter pairs for display math
+                  ['\\[', '\\]']
+              ],
+              processEscapes: true
+            }
+          });
+        </script>
+
+        <!-- highlightjs -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+        <script>hljs.highlightAll();</script>
+
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+
+    </head>
+    <body data-color-scheme="light">
+        <div style="margin: .5em 0em; font-size: 2em;">
+            <a href="..">DSC 40B Practice Problems</a>
+        </div>
+
+        
+<h1>Problems tagged with "binary search trees"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #020</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Define the <b>largest gap</b> in a collection of numbers (also known as its <b>range</b>) to be greatest difference between two elements in the collection (in absolute value). For example, the largest gap in <span class="math">\(\{4, 9, 5, 1, 6\}\)</span> is 8 (between 1 and 9).</p>
+<p>Suppose a collection of <span class="math">\(n\)</span> numbers is stored in a <b>balanced</b> binary search tree. What is the time complexity required of an efficient algorithm to calculate the largest gap in the collection? State your answer as a function of <span class="math">\(n\)</span> in asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #027</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose the numbers <span class="inline-code"><code>41</code></span>, <span class="inline-code"><code>32</code></span>, and <span class="inline-code"><code>40</code></span> are inserted (in that order) into the below binary search tree. Draw where the new nodes will appear.</p>
+<center><div class="image"><img src="../images/027/bst.png" /></div></center>
+<details>
+    <summary>Solution</summary>
+<p>41 will be the right child of 33.</p>
+<p>32 will be the right child of 31.</p>
+<p>40 will be the left child of 41.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #034</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Define the <b>smallest gap</b> in a collection of numbers to be the smallest difference between two distinct elements in the collection (in absolute value). For example, the smallest gap in <span class="math">\(\{4, 9, 1, 6\}\)</span> is 2 (between 4 and 6).</p>
+<p>Suppose a collection of <span class="math">\(n\)</span> numbers is stored in a <b>balanced</b> binary search tree. What is the time complexity required for an efficient algorithm to calculate the smallest gap of the numbers in the BST? State your answer as a function of <span class="math">\(n\)</span> in asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #055</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose the numbers <span class="inline-code"><code>41</code></span>, <span class="inline-code"><code>32</code></span>, and <span class="inline-code"><code>33</code></span> are inserted (in that order) into the below binary search tree. Draw where the new nodes will appear.</p>
+<center><div class="image"><img src="../images/055/bst.png" /></div></center>
+<details>
+    <summary>Solution</summary>
+<p>41 will become the left child of 46.</p>
+<p>32 will become the left child of 35.</p>
+<p>33 will become the right child of 32.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #061</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Define the <b>largest gap</b> in a collection of numbers to be the largest difference between two distinct elements in the collection (in absolute value). For example, the largest gap in <span class="math">\(\{4, 9, 1, 6\}\)</span> is 8 (between 1 and 9).</p>
+<p>Suppose a collection of <span class="math">\(n\)</span> numbers is stored in a <b>balanced</b> binary search tree. What is the time complexity required for an efficient algorithm to calculate the largest gap of the numbers in the BST? State your answer as a function of <span class="math">\(n\)</span> in asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(\log n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #080</h2>
+        <p>Tags: <a href='../tags/binary search trees.html'>binary search trees</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a collection of <span class="math">\(n\)</span> numbers is stored in a balanced binary search tree. What is the time complexity required of an efficient algorithm to calculate the mean of the collection? State your answer as a function of <span class="math">\(n\)</span> in asymptotic notation.</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(\Theta(n)\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+    </body>
+</html>

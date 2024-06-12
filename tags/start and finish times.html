@@ -1,0 +1,256 @@
+<html>
+    <head>
+        <title>DSC 40B Practice Problems</title>
+        <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css">
+        <link rel="stylesheet" href="../style.css">
+
+        <!-- MathJax -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+            tex: {
+              inlineMath: [ ['$$','$$'], ["\\(","\\)"] ],
+              displayMath: [             // start/end delimiter pairs for display math
+                  ['\\[', '\\]']
+              ],
+              processEscapes: true
+            }
+          });
+        </script>
+
+        <!-- highlightjs -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+        <script>hljs.highlightAll();</script>
+
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+        </script>
+
+    </head>
+    <body data-color-scheme="light">
+        <div style="margin: .5em 0em; font-size: 2em;">
+            <a href="..">DSC 40B Practice Problems</a>
+        </div>
+
+        
+<h1>Problems tagged with "start and finish times"</h1>
+
+
+        <div class="problem-outer">
+        <h2>Problem #111</h2>
+        <p>Tags: <a href='../tags/start and finish times.html'>start and finish times</a>, <a href='../tags/depth first search.html'>depth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a depth-first search (DFS) is run on the graph shown below using node <span class="math">\(s\)</span> as the source and adopting the convention that a node's neighbors are produced in ascending order of their label.</p>
+<center><div class="image"><img src="../images/111/graph.png" /></div></center>
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 1)</h3>
+<p>What will be the start time of node <span class="math">\(u_7\)</span>?</p>
+<details>
+    <summary>Solution</summary>
+<p>8</p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 2)</h3>
+<p>What will be the finish time of node <span class="math">\(u_7\)</span>?</p>
+<details>
+    <summary>Solution</summary>
+<p>9</p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 3)</h3>
+<p>Which node will be the DFS predecessor of node <span class="math">\(u_7\)</span>?</p>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(u_6\)</span></p>
+</details>
+
+</div>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #112</h2>
+        <p>Tags: <a href='../tags/start and finish times.html'>start and finish times</a>, <a href='../tags/depth first search.html'>depth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Let <span class="math">\(G\)</span> be a graph, and suppose <span class="math">\(s\)</span>, <span class="math">\(u\)</span>, and <span class="math">\(v\)</span> are three nodes in the graph.</p>
+<p>Suppose a depth-first search (DFS) is run on <span class="math">\(G\)</span> using node <span class="math">\(s\)</span> as the source and adopting the convention that a node's neighbors are produced in ascending order by label. During this DFS, start and finish times are computed. Suppose it is found that:</p>
+<div class="math">\[\text{start}[u]
+        <
+        \text{start}[v]
+        <
+        \text{finish}[v]
+        <
+        \text{finish}[u]\]</div>
+<p>Now suppose another DFS is run using node <span class="math">\(s\)</span> as the source, but adopting a different convention about the order in which neighbors are produced. Suppose <span class="inline-code"><code>new_start</code></span> and <span class="inline-code"><code>new_finish</code></span> are the start and finish times found by this second DFS. True or False: it must be that</p>
+<div class="math">\[\text{new_start}[u]
+        <
+        \text{new_start}[v]
+        <
+        \text{new_finish}[v]
+        <
+        \text{new_finish}[u]\]</div>
+
+<div class="true-false">
+    <input type="radio" name="true-false" value="true" /> True
+    <input type="radio" name="true-false" value="false" /> False
+</div>
+
+<details>
+    <summary>Solution</summary>
+<p>False.</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #131</h2>
+        <p>Tags: <a href='../tags/start and finish times.html'>start and finish times</a>, <a href='../tags/depth first search.html'>depth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose again that a DFS is run on the graph shown in the above problem using node 11 as the source.</p>
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 1)</h3>
+<p>What will be the start time of node 2? Use the convention that the start time of the source is 1.</p>
+<details>
+    <summary>Solution</summary>
+<p>4</p>
+</details>
+
+</div>
+
+<div class="subproblem">
+    <h3 class="subproblem-id">Part 2)</h3>
+<p>What will be the finish time of node 10?</p>
+<details>
+    <summary>Solution</summary>
+<p>11</p>
+</details>
+
+</div>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #132</h2>
+        <p>Tags: <a href='../tags/start and finish times.html'>start and finish times</a>, <a href='../tags/depth first search.html'>depth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>In a DFS on an undirected graph <span class="math">\(G\)</span>, the start time of node <span class="math">\(u\)</span> is 12, while the finish time of node <span class="math">\(u\)</span> is 37. How many nodes were marked pending between the moment that node <span class="math">\(u\)</span> was marked pending and the moment that it was marked visited? Node <span class="math">\(u\)</span> itself should be <i>excluded</i> from your count.</p>
+<details>
+    <summary>Solution</summary>
+<p>12</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #158</h2>
+        <p>Tags: <a href='../tags/start and finish times.html'>start and finish times</a>, <a href='../tags/depth first search.html'>depth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a depth first search is run on the graph shown below using node <span class="math">\(u_4\)</span> as the source, and adopt the convention that <span class="inline-code"><code>graph.neighbors</code></span> produces nodes in ascending order of label. Which node will have the smallest finish time?</p>
+<center><div class="image"><img src="../images/158/f1.png" /></div></center>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_1\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_2\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_3\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_4\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_5\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_6\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_7\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_8\)</span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="math">\(u_9\)</span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="math">\(u_1\)</span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #159</h2>
+        <p>Tags: <a href='../tags/start and finish times.html'>start and finish times</a>, <a href='../tags/depth first search.html'>depth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose a depth first search is run on the graph shown below using node <span class="math">\(u_4\)</span> as the source, and adopt the convention that <span class="inline-code"><code>graph.neighbors</code></span> produces nodes in ascending order of label. What will be the start time of node <span class="math">\(u_7\)</span>?</p>
+<center><div class="image"><img src="../images/159/f1.png" /></div></center>
+<details>
+    <summary>Solution</summary>
+<p>12</p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+
+        <div class="problem-outer">
+        <h2>Problem #161</h2>
+        <p>Tags: <a href='../tags/start and finish times.html'>start and finish times</a>, <a href='../tags/depth first search.html'>depth first search</a></p>
+        <div class="problem">
+    <div class="problem-body">
+<p>Suppose <span class="math">\(T = (V, E)\)</span> is a connected, undirected graph with no cycles (that is, <span class="math">\(T\)</span> is a tree). Suppose a depth first search is run on <span class="math">\(T\)</span> using node s as the source. Assume that node s has two neighbors: <span class="math">\(u\)</span> and <span class="math">\(v\)</span>. If <span class="math">\(|V| = 15\)</span>, which one of the below represents possible start and finish times of <span class="math">\(u\)</span> and <span class="math">\(v\)</span>? You may assume that <span class="inline-code"><code>graph.neighbors</code></span> produces neighbors in ascending order of label.</p>
+<div class="multiple-choices"><form><div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>start[u] = 2</code></span>, <span class="inline-code"><code>finish[u] = 10</code></span>, <span class="inline-code"><code>start[v] = 8</code></span>, <span class="inline-code"><code>finish[v] = 29</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>start[u] = 2</code></span>, <span class="inline-code"><code>finish[u] = 21</code></span>, <span class="inline-code"><code>start[v] = 22</code></span>, <span class="inline-code"><code>finish[v] = 29</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>start[u] = 1</code></span>, <span class="inline-code"><code>finish[u] = 16</code></span>, <span class="inline-code"><code>start[v] = 17</code></span>, <span class="inline-code"><code>finish[v] = 30</code></span></p></label></div>
+<div class="choice"><label><input name="choice" class="choice" type="radio" /><p><span class="inline-code"><code>start[u] = 16</code></span>, <span class="inline-code"><code>finish[u] = 29</code></span>, <span class="inline-code"><code>start[v] = 2</code></span>, <span class="inline-code"><code>finish[v] = 15</code></span></p></label></div></form></div>
+<details>
+    <summary>Solution</summary>
+<p><span class="inline-code"><code>start[u] = 2</code></span>, <span class="inline-code"><code>finish[u] = 21</code></span>, <span class="inline-code"><code>start[v] = 22</code></span>, <span class="inline-code"><code>finish[v] = 29</code></span></p>
+</details>
+
+    </div>
+</div>
+
+        </div>
+
+
+
+    </body>
+</html>
